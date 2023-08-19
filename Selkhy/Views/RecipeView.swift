@@ -9,27 +9,7 @@ import SwiftUI
 
 
 struct RecipeView: View {
-    var menu = Menu(
-        name: "전남친 샌드위치",
-        numberOfOrder: 10,
-        creater: "스윗쿡남",
-        likes: 300,
-        story: "전남친만의 비밀 재료가 들어간 샌드위치!\n이것 대문에 다시 연락했어요.",
-        recipe: Recipe(
-            ingredients: [
-                Ingredient(name: "토마토", image: Image("Sandwich"), isHidden: true),
-                Ingredient(name: "토마토", image: Image("Sandwich"), isHidden: false),
-                Ingredient(name: "토마토", image: Image("Sandwich"), isHidden: false),
-            ],
-            amount: [3,6,2],
-            price: 3500 ),
-        review: [
-            Review(score: 10, photo: Image("pizzaImage"), content: "직접 픽업해서 먹었는데, 1위인 이유가 있네요."),
-            Review(score: 10, content: "직접 픽업해서 먹었는데, 1위인 이유가 있네요."),
-            Review(score: 10, photo: Image("pizzaImage"), content: "직접 픽업해서 먹었는데, 1위인 이유가 있네요."),
-            Review(score: 10, photo: Image("pizzaImage"), content: "직접 픽업해서 먹었는데, 1위인 이유가 있네요.")
-        ],
-        image: Image("Sandwich"))
+    var menu: Menu
     
     var body: some View {
         ScrollView {
@@ -50,7 +30,7 @@ struct RecipeView: View {
                         .multilineTextAlignment(.center)
                         .foregroundColor(.LightGrey)
                     HStack {
-                        FlexibleView(data: menu.recipe.ingredients)
+                        FlexibleView(data: menu.recipe.ingredients, isInOrder: false)
                     }
                 }
                 .foregroundColor(.white)
@@ -117,11 +97,4 @@ struct TagView: View {
         .cornerRadius(10)
     }
 }
-
-struct RecipeView_Previews: PreviewProvider {
-    static var previews: some View {
-        VStack {
-            RecipeView()
-        }
-    }
 }

@@ -10,7 +10,7 @@ import SwiftUI
 struct HomeView: View {
     let menus = mockMenus
     var body: some View {
-        NavigationStack {
+        NavigationView {
             ZStack{
                 Color("Background")
                     .ignoresSafeArea()
@@ -53,7 +53,11 @@ struct HomeView: View {
                         ScrollView(.horizontal, showsIndicators: false) {
                             HStack {
                                 ForEach(menus.indices, id: \.self) { index in
-                                    MenuCell(menu: menus[index])
+                                    NavigationLink {
+                                        RecipeView(menu: menus[index])
+                                    } label: {
+                                        MenuCell(menu: menus[index])
+                                    }
                                 }
                             }
                         }

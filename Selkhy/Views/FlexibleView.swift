@@ -10,18 +10,23 @@ import SwiftUI
 struct FlexibleView: View {
     var data: [Ingredient]
     @State var elementsSize: [String: CGFloat] = [:]
+    let isInOrder: Bool
     
     var body: some View {
         VStack(alignment: .center, spacing: 8) {
             ForEach(Array(computeRows().enumerated()), id: \.offset) { index, rowItem in
                 HStack {
                     ForEach(rowItem) { datum in
-                        TagView(isHidden: datum.isHidden, text: datum.name)
-                            .fixedSize()
-                            .readSize { size in
-                                let width = size.width
-                                elementsSize[datum.name] = width
-                            }
+                        if (isInOrder) {
+                            
+                        } else {
+                            TagView(isHidden: datum.isHidden, text: datum.name)
+                                .fixedSize()
+                                .readSize { size in
+                                    let width = size.width
+                                    elementsSize[datum.name] = width
+                                }
+                        }
                     }
                 }
             }
