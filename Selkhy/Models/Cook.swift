@@ -13,6 +13,19 @@ enum CookAction {
     case roast
     case steam
     
+    func getThumbnailImageFimeName() -> String {
+        switch self {
+        case .fry:
+            return "Fri"
+        case .boil:
+            return "Boil"
+        case .roast:
+            return "Roast"
+        case .steam:
+            return "Steam"
+        }
+    }
+    
     func getImage() -> Image {
         switch self {
         case .fry:

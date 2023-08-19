@@ -14,7 +14,6 @@ struct CarouselItemView: View {
     @Binding var isShowIngredientSelection: Bool
     @Binding var isShowCookActionSelection: Bool
     @Binding var isShowTimeSelection: Bool
-//    @Binding var selectedAction: CookAction?
     
     var body: some View {
         ZStack {
@@ -51,17 +50,22 @@ struct CarouselItemView: View {
                             isShowCookActionSelection.toggle()
                         } label: {
                             VStack(spacing: 26) {
-                                Image("SelectButton")
+                                Image(item.action?.getThumbnailImageFimeName() ?? "SelectButton")
                                     .resizable()
                                     .scaledToFill()
                                     .frame(width: 70, height: 70)
                             }
                         }
                         
-                        Text(item.action?.actionTitle ?? "")
-                            .font(.system(size: 20, weight: .bold))
-                            .foregroundColor(.black).opacity(0.4)
-                        
+                        if let title = item.action?.actionTitle {
+                            Text(title)
+                                .font(.system(size: 20, weight: .bold))
+                                .foregroundColor(.Point)
+                        } else {
+                            Text("조리")
+                                .font(.system(size: 20, weight: .bold))
+                                .foregroundColor(.black).opacity(0.4)
+                        }
                     }
                     
                     VStack(spacing: 26) {
