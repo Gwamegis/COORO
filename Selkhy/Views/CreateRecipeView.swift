@@ -21,6 +21,17 @@ struct CreateRecipeView: View {
             
             Spacer()
             
+            ZStack {
+                Image("Pot")
+                    .resizable()
+                    .scaledToFit()
+                    .frame(width: 300, height: 240)
+                Image("PotFront")
+                    .resizable()
+                    .scaledToFit()
+                    .frame(width: 300, height: 240)
+            }
+            
             Carousel(items: $items,
                      currentIndex: $currentIndex,
                      spacing: spacing,
@@ -30,10 +41,28 @@ struct CreateRecipeView: View {
                      sizeScale: 0.1) { item in
                 CarouselItemView(item: item)
             }
+                     .padding(.bottom, 50)
             
             Spacer()
+            
+            Button {
+                
+            } label: {
+                Text("완료")
+                    .font(.system(size: 18, weight: .bold))
+                    .foregroundColor(.white)
+                    .padding(20)
+                    .frame(maxWidth: .infinity)
+                    .background(
+                        RoundedRectangle(cornerRadius: 10)
+                            .foregroundColor(.Point)
+                    )
+                    .padding([.horizontal, .bottom], 20)
+            }
         }
         .background(Color.Background)
+        .navigationBarBackButtonHidden()
+        .navigationTitle("레시피 등록")
     }
 }
 

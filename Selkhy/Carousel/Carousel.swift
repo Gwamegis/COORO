@@ -109,6 +109,7 @@ struct Carousel<Item, ItemView: View> : View {
                 pointX = -(CGFloat(currentIndex) * itemWidth + CGFloat(currentIndex) * spacing)
             }
         }
+        .frame(height: itemHeight)
         .gesture(
         DragGesture()
             .updating($offsetState) { currentState, gestureSTate, transaction in
