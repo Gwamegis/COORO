@@ -12,6 +12,7 @@ struct RegisterRecipeView: View {
     @State private var name: String = ""
     @State private var story: String = ""
     @State var menu: Menu?
+    @State var isCompleted: Bool = false
     
     var body: some View {
         ScrollView {
@@ -37,7 +38,10 @@ struct RegisterRecipeView: View {
                               prompt: Text("레시피 이름을 지어주세요.").foregroundColor(.LightGrey)
                     )
                     .font(.system(size: 14))
-                    
+                    .padding(EdgeInsets(top: 10, leading: 20, bottom: 10, trailing: 20))
+                    .background(Color.Grey03)
+                    .cornerRadius(10)
+                    .foregroundColor(.white)
                 }
                 
                 VStack(alignment: .leading, spacing: 10) {
@@ -49,6 +53,10 @@ struct RegisterRecipeView: View {
                               prompt: Text("레시피 사연을 작성해주세요.").foregroundColor(.LightGrey)
                     )
                     .font(.system(size: 14))
+                    .padding(EdgeInsets(top: 10, leading: 20, bottom: 10, trailing: 20))
+                    .background(Color.Grey03)
+                    .cornerRadius(10)
+                    .foregroundColor(.white)
                 }
                 
                 VStack(alignment: .leading, spacing: 10) {
@@ -79,14 +87,8 @@ struct RegisterRecipeView: View {
                 
                 Spacer()
                 
-                Button {
-                    if var menu {
-                        menu.name = name
-                        menu.story = story
-                        menu.recipe.ingredients = getIngredients()
-                        mockMenus.append(menu)
-                        NavigationUtil.popToRootView()
-                    }
+                NavigationLink {
+                    CompleteRegisterRecipeView(name: name)
                 } label: {
                     Text("등록하기")
                         .foregroundColor(.white)
@@ -98,6 +100,15 @@ struct RegisterRecipeView: View {
                                 .foregroundColor(.Point)
                         )
                 }
+                .simultaneousGesture(TapGesture().onEnded{
+                    if var menu {
+                        menu.name = name
+                        menu.story = story
+                        menu.recipe.ingredients = getIngredients()
+                        isCompleted.toggle()
+                        mockMenus.append(menu)
+                    }
+                })
             }
             .padding(.horizontal, 20)
         }

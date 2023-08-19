@@ -11,7 +11,6 @@ struct SelectedCookActionView: View {
     
     @Binding var isShowCookActionSelection: Bool
     @Binding var cook: Cook
-//    @Binding var selectedAction: CookAction?
     private let cookActions: [CookAction] = [.roast, .boil, .fry, .steam]
     
     var body: some View {
@@ -40,7 +39,6 @@ struct SelectedCookActionView: View {
             ForEach(cookActions.indices, id: \.self) { index in
                 Button {
                     cook.action = cookActions[index]
-//                    selectedAction = cookActions[index]
                     isShowCookActionSelection.toggle()
                 } label: {
                     cookActions[index].getImage()
