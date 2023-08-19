@@ -22,8 +22,7 @@ struct SelkhyApp: App {
     }
     var body: some Scene {
         WindowGroup {
-//            HomeView()
-            OrderView(menu: mockMenus[0])
+            HomeView()
         }
     }
 }
