@@ -63,9 +63,10 @@ struct RegisterRecipeView: View {
                                 Text("\(index + 1). ")
                                     .foregroundColor(.white)
                                     .font(.system(size: 20, weight: .bold))
-
+                                    .padding(.leading, 10)
                                 getRecipeView(with: cook)
                             }
+                            .frame(width: UIScreen.main.bounds.size.width - 60, alignment: .leading)
                         }
                     }
                     .padding(EdgeInsets(top: 20, leading: 10, bottom: 20, trailing: 10))
@@ -82,6 +83,7 @@ struct RegisterRecipeView: View {
                     menu.story = story
                     menu.recipe.ingredients = getIngredients()
                     mockMenus.append(menu)
+                    NavigationUtil.popToRootView()
                 } label: {
                     Text("등록하기")
                         .foregroundColor(.white)
@@ -97,32 +99,36 @@ struct RegisterRecipeView: View {
             .padding(.horizontal, 20)
         }
         .background(Color.Background)
+        .navigationBarBackButtonHidden()
+        .navigationTitle("레시피 등록")
     }
     
     @ViewBuilder
     private func getRecipeView(with cook: Cook) -> some View {
-        var ingredients: String = "치킨, 파"
         var time: String = "1m 30s"
         
         HStack(spacing: 8) {
-            Text(ingredients)
-                .padding(.vertical, 8)
-                .padding(.horizontal, 10)
-                .foregroundColor(.white)
-                .font(.system(size: 16, weight: .bold))
-                .background(
-                    RoundedRectangle(cornerRadius: 10)
-                        .foregroundColor(.Grey03)
-                )
-            
-            Text("재료를")
-                .foregroundColor(.LightGrey)
-            
+            if let ingredients = cook.ingredients {
+                
+                Text(ingredients.map { $0.name }.joined(separator: ", "))
+                    .padding(.vertical, 8)
+                    .padding(.horizontal, 10)
+                    .foregroundColor(.white)
+                    .font(.system(size: 14, weight: .bold))
+                    .background(
+                        RoundedRectangle(cornerRadius: 10)
+                            .foregroundColor(.Grey03)
+                    )
+                
+                Text("재료를")
+                    .foregroundColor(.LightGrey)
+                    .font(.system(size: 14))
+            }
             Text(time)
                 .padding(.vertical, 8)
                 .padding(.horizontal, 10)
                 .foregroundColor(.white)
-                .font(.system(size: 16, weight: .bold))
+                .font(.system(size: 14, weight: .bold))
                 .background(
                     RoundedRectangle(cornerRadius: 10)
                         .foregroundColor(.Grey03)
@@ -130,12 +136,13 @@ struct RegisterRecipeView: View {
             
             Text("동안")
                 .foregroundColor(.LightGrey)
+                .font(.system(size: 14))
             
             Text(cook.action.actionTitle)
                 .padding(.vertical, 8)
                 .padding(.horizontal, 10)
                 .foregroundColor(.white)
-                .font(.system(size: 16, weight: .bold))
+                .font(.system(size: 14, weight: .bold))
                 .background(
                     RoundedRectangle(cornerRadius: 10)
                         .foregroundColor(.Grey03)
@@ -155,8 +162,30 @@ struct RegisterRecipeView: View {
     }
 }
 
-//struct RegisterRecipeView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        RegisterRecipeView()
-//    }
-//}
+struct RegisterRecipeView_Previews: PreviewProvider {
+    static var previews: some View {
+        RegisterRecipeView(menu:
+                            Menu(
+                                name: "3분 스시 김밥",
+                                numberOfOrder: 10,
+                                creater: "오마카세아니면밥상엎음",
+                                likes: 200,
+                                story: "전남친만의 비밀 재료가 들어간 샌드위치!\n이것 대문에 다시 연락했어요.",
+                                recipe: Recipe(
+                                    ingredients: [
+                                        Ingredient(name: "단무지", image: Image("PickledRadish"), isHidden: false),
+                                        Ingredient(name: "햄", image: Image("Ham"), isHidden: false),
+                                        Ingredient(name: "스시밥", image: Image("SushiRice"), isHidden: false)
+                                    ],
+                                    amount: [3,3,6],
+                                    price: 5000,
+                                    produce: [
+                                        Cook(ingredients: [Ingredient(name: "단무지", image: Image("PickledRadish"), isHidden: false), Ingredient(name: "햄", image: Image("Ham"), isHidden: false)], action: .fry),
+                                        Cook(ingredients: [Ingredient(name: "햄", image: Image("Ham"), isHidden: false)], action: .fry),
+                                        Cook(ingredients: [Ingredient(name: "스시밥", image: Image("SushiRice"), isHidden: false)], action: .boil)
+                                    ]
+                                ),
+                                review: [Review(score: 10, photo: Image("Sandwich") , content: "")],
+                                image: Image("Kimbob")))
+    }
+}
