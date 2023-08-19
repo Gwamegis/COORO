@@ -15,6 +15,7 @@ struct SelkhyApp: App {
         navigationBarAppearance.configureWithOpaqueBackground()
         navigationBarAppearance.backgroundColor = UIColor(Color.Background)
         navigationBarAppearance.shadowColor = UIColor(Color.Background)
+        navigationBarAppearance.titleTextAttributes = [.foregroundColor: UIColor.white, .font: UIFont.systemFont(ofSize: 20, weight: .bold)]
         UINavigationBar.appearance().scrollEdgeAppearance = navigationBarAppearance
         UINavigationBar.appearance().compactAppearance = navigationBarAppearance
         UINavigationBar.appearance().compactScrollEdgeAppearance = navigationBarAppearance
