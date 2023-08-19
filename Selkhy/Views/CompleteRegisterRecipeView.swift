@@ -42,6 +42,7 @@ struct CompleteRegisterRecipeView: View {
             }
             .padding(.bottom, 130)
         }
+        .navigationBarBackButtonHidden()
         .onAppear {
             self.isAnimating = true
         }
@@ -49,6 +50,7 @@ struct CompleteRegisterRecipeView: View {
             ToolbarItem(placement: .navigation) {
                 Text("레시피 등록 완료")
                     .font(.system(size: 20, weight: .bold ))
+                    .foregroundColor(.white)
             }
             ToolbarItem(placement: .navigationBarTrailing) {
                 Button {
@@ -57,6 +59,7 @@ struct CompleteRegisterRecipeView: View {
                 } label: {
                     Image(systemName: "xmark")
                         .font(.system(size: 20, weight: .bold ))
+                        .foregroundColor(.white)
                 }
             }
         }

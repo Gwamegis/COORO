@@ -80,15 +80,8 @@ struct RegisterRecipeView: View {
                 
                 Spacer()
                 
-                Button {
-                    if var menu {
-                        menu.name = name
-                        menu.story = story
-                        menu.recipe.ingredients = getIngredients()
-                        isCompleted.toggle()
-                        mockMenus.append(menu)
-                        NavigationUtil.popToRootView()
-                    }
+                NavigationLink {
+                    CompleteRegisterRecipeView(name: name)
                 } label: {
                     Text("등록하기")
                         .foregroundColor(.white)
@@ -100,6 +93,15 @@ struct RegisterRecipeView: View {
                                 .foregroundColor(.Point)
                         )
                 }
+                .simultaneousGesture(TapGesture().onEnded{
+                    if var menu {
+                        menu.name = name
+                        menu.story = story
+                        menu.recipe.ingredients = getIngredients()
+                        isCompleted.toggle()
+                        mockMenus.append(menu)
+                    }
+                })
             }
             .padding(.horizontal, 20)
         }
