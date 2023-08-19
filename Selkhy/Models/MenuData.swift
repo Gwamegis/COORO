@@ -26,7 +26,8 @@ var mockMenus: [Menu] = [
             produce: [
                 Cook(ingredients: [Ingredient(name: "빵", image: Image("Bread"), isHidden: false),
                                    Ingredient(name: "블루베리잼", image: Image("Jam"), isHidden: true)],
-                     action: .fry
+                     action: .fry,
+                     time: "1m 30s"
                 )
             ]
         ),
@@ -48,8 +49,8 @@ var mockMenus: [Menu] = [
             amount: [3,6,2],
             price: 12000,
             produce: [
-                Cook(ingredients: [Ingredient(name: "칼국수면", image: Image("Sandwich"), isHidden: true)], action: .boil),
-                Cook(ingredients: [Ingredient(name: "고추장", image: Image("Sandwich"), isHidden: false)], action: .fry)
+                Cook(ingredients: [Ingredient(name: "칼국수면", image: Image("Sandwich"), isHidden: true)], action: .boil, time: "30s"),
+                Cook(ingredients: [Ingredient(name: "고추장", image: Image("Sandwich"), isHidden: false)], action: .fry, time: "1m")
             ]),
         review: [Review(score: 10, photo: Image("Sandwich") , content: "")],
         image: Image("Noodle")),
@@ -68,7 +69,7 @@ var mockMenus: [Menu] = [
             amount: [5,5],
             price: 7000,
             produce: [
-                Cook(ingredients: [Ingredient(name: "고기", image: Image("Meat"), isHidden: false), Ingredient(name: "파", image: Image("GreenOnion"), isHidden: false)], action: .roast)
+                Cook(ingredients: [Ingredient(name: "고기", image: Image("Meat"), isHidden: false), Ingredient(name: "파", image: Image("GreenOnion"), isHidden: false)], action: .roast, time: "1m")
             ]
         ),
         review: [Review(score: 10, photo: Image("Sandwich") , content: "")],
@@ -89,9 +90,9 @@ var mockMenus: [Menu] = [
                     amount: [3,3,6],
                     price: 5000,
                     produce: [
-                        Cook(ingredients: [Ingredient(name: "단무지", image: Image("PickledRadish"), isHidden: false)], action: .fry),
-                        Cook(ingredients: [Ingredient(name: "햄", image: Image("Ham"), isHidden: false)], action: .fry),
-                        Cook(ingredients: [Ingredient(name: "스시밥", image: Image("SushiRice"), isHidden: false)], action: .boil)
+                        Cook(ingredients: [Ingredient(name: "단무지", image: Image("PickledRadish"), isHidden: false)], action: .fry, time: "1m"),
+                        Cook(ingredients: [Ingredient(name: "햄", image: Image("Ham"), isHidden: false)], action: .fry, time: "1m"),
+                        Cook(ingredients: [Ingredient(name: "스시밥", image: Image("SushiRice"), isHidden: false)], action: .boil, time: "1m")
                     ]
                 ),
         review: [Review(score: 10, photo: Image("Sandwich") , content: "")],
@@ -113,22 +114,12 @@ var mockMenus: [Menu] = [
                     amount: [6,2,2,4],
                     price: 9000,
                     produce: [
-                        Cook(ingredients: [Ingredient(name: "갈비", image: Image("Rib"), isHidden: false)], action: .fry),
-                        Cook(ingredients: [Ingredient(name: "양파", image: Image("Onion"), isHidden: false), Ingredient(name: "당근", image: Image("Carrot"), isHidden: false)], action: .fry),
-                        Cook(ingredients: [Ingredient(name: "갈비찜 소스", image: Image("BraisingSauce"), isHidden: false)], action: .boil)
+                        Cook(ingredients: [Ingredient(name: "갈비", image: Image("Rib"), isHidden: false)], action: .fry, time: "1m"),
+                        Cook(ingredients: [Ingredient(name: "양파", image: Image("Onion"), isHidden: false), Ingredient(name: "당근", image: Image("Carrot"), isHidden: false)], action: .fry, time: "1m"),
+                        Cook(ingredients: [Ingredient(name: "갈비찜 소스", image: Image("BraisingSauce"), isHidden: false)], action: .boil, time: "1m")
                     ]
                 ),
         review: [Review(score: 10, photo: Image("Sandwich") , content: "")],
         image: Image("Meet"))
     
 ]
-
-//
-//[[
-//    Selkhy.Ingredient(id: 5A606BE6-AFB7-4D1A-A1F6-0B59ADBA7A2E, name: "토마토", image: SwiftUI.Image(provider: SwiftUI.ImageProviderBox<SwiftUI.Image.NamedImageProvider>), isHidden: false),
-//  Selkhy.Ingredient(id: ED99252F-A98D-4F18-A7C8-8466EA01D3D7, name: "크림치즈", image: SwiftUI.Image(provider: SwiftUI.ImageProviderBox<SwiftUI.Image.NamedImageProvider>), isHidden: true),
-//  Selkhy.Ingredient(id: 8F70C87C-3CED-48A5-84E5-695A9CDCAF46, name: "블루베리잼", image: SwiftUI.Image(provider: SwiftUI.ImageProviderBox<SwiftUI.Image.NamedImageProvider>), isHidden: true)
-//],
-// 
-// [
-//    Selkhy.Ingredient(id: EF6A35B4-12A3-4455-9E1F-72A652BC64BF, name: "머스타드", image: SwiftUI.Image(provider: SwiftUI.ImageProviderBox<SwiftUI.Image.NamedImageProvider>), isHidden: false), Selkhy.Ingredient(id: 0412F60F-EA59-4A61-8928-D8A29527B962, name: "햄", image: SwiftUI.Image(provider: SwiftUI.ImageProviderBox<SwiftUI.Image.NamedImageProvider>), isHidden: false), Selkhy.Ingredient(id: 021406A9-9B59-4BA2-86CE-2D25A9C00774, name: "슬라이스 치즈", image: SwiftUI.Image(provider: SwiftUI.ImageProviderBox<SwiftUI.Image.NamedImageProvider>), isHidden: false), Selkhy.Ingredient(id: 77609BBB-5AB0-40F4-9E11-9FCD41D50187, name: "토마토", image: SwiftUI.Image(provider: SwiftUI.ImageProviderBox<SwiftUI.Image.NamedImageProvider>), isHidden: false)]]

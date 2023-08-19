@@ -50,16 +50,6 @@ struct RecipeVoteView: View {
                     .padding(.bottom, 20)
                 
                 HStack {
-                    //                    ForEach(menu.recipe.ingredients.indices, id: \.self) { index in
-                    //                        ZStack{
-                    //                            Text(menu.recipe.ingredients[index].name)
-                    //                                .font(.system(size: 16, weight: .bold))
-                    //                                .padding(10)
-                    //                                .background(.green)
-                    //                                .foregroundColor(.white)
-                    //                                .cornerRadius(10)
-                    //                        }
-                    //                    }
                     FlexibleView(data: menu.recipe.ingredients, isInOrder: false)
                 }
                 .padding(.bottom, 80)
@@ -137,7 +127,7 @@ struct RankingDetailView_Previews: PreviewProvider {
                                 produce: [
                                     Cook(ingredients: [Ingredient(name: "빵", image: Image("Bread"), isHidden: false),
                                                        Ingredient(name: "블루베리잼", image: Image("Jam"), isHidden: true)],
-                                         action: .fry
+                                         action: .fry, time: "1m"
                                         )
                                 ]
                             ),

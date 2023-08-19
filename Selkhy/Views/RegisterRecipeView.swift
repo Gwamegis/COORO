@@ -180,9 +180,9 @@ struct RegisterRecipeView_Previews: PreviewProvider {
                                     amount: [3,3,6],
                                     price: 5000,
                                     produce: [
-                                        Cook(ingredients: [Ingredient(name: "단무지", image: Image("PickledRadish"), isHidden: false), Ingredient(name: "햄", image: Image("Ham"), isHidden: false)], action: .fry),
-                                        Cook(ingredients: [Ingredient(name: "햄", image: Image("Ham"), isHidden: false)], action: .fry),
-                                        Cook(ingredients: [Ingredient(name: "스시밥", image: Image("SushiRice"), isHidden: false)], action: .boil)
+                                        Cook(ingredients: [Ingredient(name: "단무지", image: Image("PickledRadish"), isHidden: false), Ingredient(name: "햄", image: Image("Ham"), isHidden: false)], action: .fry, time: "3m 20s"),
+                                        Cook(ingredients: [Ingredient(name: "햄", image: Image("Ham"), isHidden: false)], action: .fry, time: "4m 20s"),
+                                        Cook(ingredients: [Ingredient(name: "스시밥", image: Image("SushiRice"), isHidden: false)], action: .boil, time: "5m 20s")
                                     ]
                                 ),
                                 review: [Review(score: 10, photo: Image("Sandwich") , content: "")],
