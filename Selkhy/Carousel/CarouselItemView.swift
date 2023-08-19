@@ -51,7 +51,7 @@ struct CarouselItemView: View {
                             VStack(spacing: 26) {
                                 Text("\(item.ingredients?.count ?? 0)개")
                                     .font(.system(size: 20, weight: .bold))
-                                    .foregroundColor(.black).opacity(0.4)
+                                    .foregroundColor(.Point)
                             }
                         } else {
                             Text("재료")
