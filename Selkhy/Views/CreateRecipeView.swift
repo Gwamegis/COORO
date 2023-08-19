@@ -24,7 +24,7 @@ struct CreateRecipeView: View {
     let itemWidth: CGFloat = 290
     let itemHeight: CGFloat = 208
     
-//    @State var player = AVPlayer(url: Bundle.main.url(forResource: "yourAudioFile", withExtension: "mp3")!)
+    private let audioManager = AudioManager.instance
     
     init() {
             _menu = State(initialValue: Menu(
@@ -77,6 +77,14 @@ struct CreateRecipeView: View {
                 }
             }
             .padding(.bottom, -50)
+            .onChange(of: items[currentIndex].action) { newValue in
+                print(newValue)
+                if let action = newValue {
+                    audioManager.playSoundAsset(assetName: action.getThumbnailImageFimeName())
+                } else {
+                    audioManager.stopSound()
+                }
+            }
             
             Carousel(items: $items,
                      currentIndex: $currentIndex,
