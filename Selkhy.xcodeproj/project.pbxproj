@@ -38,6 +38,9 @@
 		87CF06952A9110F3008BF19B /* CarouselItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87CF06942A9110F3008BF19B /* CarouselItemView.swift */; };
 		87CF06972A9113B6008BF19B /* CreateRecipeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87CF06962A9113B6008BF19B /* CreateRecipeView.swift */; };
 		87CF06992A91334F008BF19B /* SelectedCookActionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87CF06982A91334F008BF19B /* SelectedCookActionView.swift */; };
+		F9495A472A9111A500876166 /* TimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9495A462A9111A500876166 /* TimerView.swift */; };
+		F9495A4A2A9111E400876166 /* BlackOpsOne-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F9495A492A9111E400876166 /* BlackOpsOne-Regular.ttf */; };
+		F9495A4C2A91121F00876166 /* Font+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9495A4B2A91121F00876166 /* Font+Extension.swift */; };
 		F9BF4E052A90A3FD009D4624 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9BF4E042A90A3FD009D4624 /* Colors.swift */; };
 		F9BF4E0B2A90B8B9009D4624 /* ReviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9BF4E0A2A90B8B9009D4624 /* ReviewView.swift */; };
 		F9BF4E0D2A90C7A8009D4624 /* FlexibleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9BF4E0C2A90C7A8009D4624 /* FlexibleView.swift */; };
@@ -96,6 +99,10 @@
 		87CF06942A9110F3008BF19B /* CarouselItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarouselItemView.swift; sourceTree = "<group>"; };
 		87CF06962A9113B6008BF19B /* CreateRecipeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateRecipeView.swift; sourceTree = "<group>"; };
 		87CF06982A91334F008BF19B /* SelectedCookActionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedCookActionView.swift; sourceTree = "<group>"; };
+		F9495A462A9111A500876166 /* TimerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerView.swift; sourceTree = "<group>"; };
+		F9495A492A9111E400876166 /* BlackOpsOne-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "BlackOpsOne-Regular.ttf"; sourceTree = "<group>"; };
+		F9495A4B2A91121F00876166 /* Font+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Font+Extension.swift"; sourceTree = "<group>"; };
+		F9495A4D2A9113F600876166 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		F9BF4E042A90A3FD009D4624 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		F9BF4E0A2A90B8B9009D4624 /* ReviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewView.swift; sourceTree = "<group>"; };
 		F9BF4E0C2A90C7A8009D4624 /* FlexibleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlexibleView.swift; sourceTree = "<group>"; };
@@ -130,6 +137,7 @@
 		208033502A904ACA009298E0 = {
 			isa = PBXGroup;
 			children = (
+				F9495A482A9111C400876166 /* Font */,
 				2080335B2A904ACA009298E0 /* Selkhy */,
 				2080336C2A904ACC009298E0 /* SelkhyTests */,
 				208033762A904ACC009298E0 /* SelkhyUITests */,
@@ -150,6 +158,7 @@
 		2080335B2A904ACA009298E0 /* Selkhy */ = {
 			isa = PBXGroup;
 			children = (
+				F9495A4D2A9113F600876166 /* Info.plist */,
 				2080335C2A904ACA009298E0 /* SelkhyApp.swift */,
 				87CF06832A90C06D008BF19B /* Extension */,
 				876F90572A90568B00F4466E /* Models */,
@@ -230,6 +239,7 @@
 				F9BF4E122A90ECAC009D4624 /* View+Extension.swift */,
 				87CF06962A9113B6008BF19B /* CreateRecipeView.swift */,
 				87CF06982A91334F008BF19B /* SelectedCookActionView.swift */,
+				F9495A462A9111A500876166 /* TimerView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -253,6 +263,7 @@
 			children = (
 				87CF06842A90C07D008BF19B /* Int+Extension.swift */,
 				87CF068A2A90FD87008BF19B /* NavigationUtils.swift */,
+				F9495A4B2A91121F00876166 /* Font+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -273,6 +284,14 @@
 				87CF06942A9110F3008BF19B /* CarouselItemView.swift */,
 			);
 			path = Carousel;
+            sourceTree = "<group>";
+        };
+		F9495A482A9111C400876166 /* Font */ = {
+			isa = PBXGroup;
+			children = (
+				F9495A492A9111E400876166 /* BlackOpsOne-Regular.ttf */,
+			);
+			path = Font;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -382,6 +401,7 @@
 				876F90672A90A1D800F4466E /* Launch Screen.storyboard in Resources */,
 				208033642A904ACC009298E0 /* Preview Assets.xcassets in Resources */,
 				208033612A904ACC009298E0 /* Assets.xcassets in Resources */,
+				F9495A4A2A9111E400876166 /* BlackOpsOne-Regular.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -414,11 +434,13 @@
 				876F90652A905E1B00F4466E /* Cook.swift in Sources */,
 				F9BF4E052A90A3FD009D4624 /* Colors.swift in Sources */,
 				87CF068E2A910903008BF19B /* ShakeEffect.swift in Sources */,
+				F9495A472A9111A500876166 /* TimerView.swift in Sources */,
 				87CF06892A90E76A008BF19B /* QrCodeView.swift in Sources */,
 				87CF06932A911073008BF19B /* View+Carousel.swift in Sources */,
 				2080338D2A90C101009298E0 /* HomeView.swift in Sources */,
 				876F90612A90578200F4466E /* Ingredient.swift in Sources */,
 				876F90632A9058E100F4466E /* Review.swift in Sources */,
+				F9495A4C2A91121F00876166 /* Font+Extension.swift in Sources */,
 				208033892A90B667009298E0 /* MenuData.swift in Sources */,
 				F9BF4E0D2A90C7A8009D4624 /* FlexibleView.swift in Sources */,
 				F9BF4E0B2A90B8B9009D4624 /* ReviewView.swift in Sources */,
@@ -596,13 +618,14 @@
 				DEVELOPMENT_TEAM = L3A22T43UF;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Selkhy/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = "Launch Screen.storyboard";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -627,13 +650,14 @@
 				DEVELOPMENT_TEAM = L3A22T43UF;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Selkhy/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = "Launch Screen.storyboard";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

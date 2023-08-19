@@ -61,7 +61,7 @@ struct RankingCell_Previews: PreviewProvider {
                                 produce: [
                                     Cook(ingredients: [Ingredient(name: "빵", image: Image("Bread"), isHidden: false),
                                                        Ingredient(name: "블루베리잼", image: Image("Jam"), isHidden: true)],
-                                         action: .fry
+                                         action: .fry, time: "1m"
                                         )
                                 ]
                             ),
