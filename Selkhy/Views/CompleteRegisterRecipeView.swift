@@ -51,7 +51,7 @@ struct CompleteRegisterRecipeView: View {
             
             VStack(spacing: 60) {
                 Spacer()
-                Image("Sandwich")
+                Image("FriedRice")
                     .resizable()
                     .scaledToFit()
                     .frame(width: 285)

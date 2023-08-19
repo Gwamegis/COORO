@@ -17,6 +17,7 @@ struct CreateRecipeView: View {
     @State var isShowCookActionSelection: Bool = false
     @State var isShowTimeSelection: Bool = false
     @State var selectedAction: CookAction? = nil
+    @State private var isAnimating = true
     
     let spacing: CGFloat  = 10
     let itemWidth: CGFloat = 290
@@ -41,7 +42,7 @@ struct CreateRecipeView: View {
             
             Spacer()
             
-            ZStack {
+            ZStack(alignment: .bottom) {
                 Image("Pot")
                     .resizable()
                     .scaledToFit()
@@ -57,7 +58,15 @@ struct CreateRecipeView: View {
                     .resizable()
                     .scaledToFit()
                     .frame(width: 300, height: 240)
+                Image("Fire")
+                    .resizable()
+                    .scaledToFit()
+                    .frame(width: 195)
+                    .padding(.bottom, -15)
+                    .offset(y: isAnimating ? -5 : 5)
+                    .animation(Animation.easeInOut(duration: 1.0).repeatForever(autoreverses: true))
             }
+            .padding(.bottom, -50)
             
             Carousel(items: $items,
                      currentIndex: $currentIndex,
