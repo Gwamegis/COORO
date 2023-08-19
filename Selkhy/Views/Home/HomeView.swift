@@ -25,18 +25,16 @@ struct HomeView: View {
                             
                             Spacer()
                             
-                            Button(action: {
-                                // TODO: 버튼 클릭시 레시피 등록창 이동
-                                print("register recipe")
-                            }, label: {
+                            NavigationLink {
+                                CreateRecipeView()
+                            } label: {
                                 Text("레시피 등록")
                                     .padding(10)
                                     .font(.system(size: 16, weight: .bold))
                                     .foregroundColor(.white)
                                     .background(Color("Point"))
                                     .cornerRadius(10)
-                                
-                            })
+                            }
                         }
                         .padding(.bottom, 30)
                         
