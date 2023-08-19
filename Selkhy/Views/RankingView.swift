@@ -13,60 +13,92 @@ struct RankingView: View {
         ZStack{
             Color("Background")
                 .ignoresSafeArea()
-            VStack(alignment: .leading) {
-                HStack{
-                    Image("AppLogo")
-                        .resizable()
-                        .scaledToFit()
-                        .frame(width: 100)
-                        .padding(.bottom, 30)
-                }
-                
-                HStack{
-                    Image("Crown")
-                        .resizable()
-                        .scaledToFit()
-                        .frame(width: 20)
-                    Text("이번주 요리")
-                        .font(.system(size: 20, weight: .bold))
-                        .foregroundColor(Color("LightGrey"))
-                }
-                
-                ScrollView(.horizontal, showsIndicators: false) {
-                    HStack {
-                        ForEach(menus.indices, id: \.self) { index in
-                            ZStack {
-                                Color.red
-                                VStack {
-                                    menus[index].image
-                                        .resizable()
-                                        .frame(width: 280, height: 200)
+            ScrollView {
+                VStack(alignment: .leading) {
+                    HStack{
+                        Image("AppLogo")
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: 100)
+                        
+                        Spacer()
+                        
+                        Button(action: {}, label: {
+                            Text("레시피 등록")
+                                .padding(10)
+                                .font(.system(size: 16, weight: .bold))
+                                .foregroundColor(.white)
+                                .background(Color("Point"))
+                                .cornerRadius(10)
+                                
+                        })
+                    }
+                    .padding(.bottom, 30)
+                    
+                    HStack{
+                        Image("Crown")
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: 20)
+                        Text("이번주의 요리")
+                            .font(.system(size: 20, weight: .bold))
+                            .foregroundColor(Color("LightGrey"))
+                    }
+                    
+                    ScrollView(.horizontal, showsIndicators: false) {
+                        HStack {
+                            ForEach(menus.indices, id: \.self) { index in
+                                ZStack {
+                                    Color("DarkGrey")
                                     VStack {
-                                        HStack {
-                                            Text(menus[index].name)
-                                            Text("\(menus[index].recipe.price, specifier: "%.0f")원")
+                                        menus[index].image
+                                            .resizable()
+                                            .frame(width: 280, height: 200)
+                                        VStack(alignment: .leading) {
+                                            HStack {
+                                                Text(menus[index].name)
+                                                    .font(.system(size: 18, weight: .bold))
+                                                    .foregroundColor(.white)
+                                                
+                                                Spacer()
+                                                
+                                                Text("\(menus[index].recipe.price, specifier: "%.0f")원")
+                                                    .font(.system(size: 18, weight: .bold))
+                                                    .foregroundColor(Color("Point"))
+                                            }
+                                            .padding(.bottom, 16)
+                                            Text(menus[index].story)
+                                                .font(.system(size: 12))
+                                                .foregroundColor(.white)
                                         }
-                                        Text(menus[index].story)  // 메뉴의 story 사용
+                                        .padding(.horizontal, 20)
                                     }
                                 }
+                                .frame(width: 320, height: 320)
+                                .cornerRadius(10)
                             }
-                            .frame(width: 320, height: 320)
-                            .cornerRadius(10)
                         }
                     }
-                }
-                
-                Text("이번주 랭킹")
-                List {
-                    ForEach(1 ..< menus.count) { index in
-                        RankingCell(rank: index + 1, menu: menus[index])
-                            .listRowInsets(EdgeInsets())
+                    .padding(.bottom, 30)
+                    HStack{
+                        Image("Face")
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: 20)
+                        Text("이번주 랭킹")
+                            .font(.system(size: 20, weight: .bold))
+                            .foregroundColor(Color("LightGrey"))
                     }
-                    .listRowBackground(Color("Background"))
+                    VStack(alignment: .leading, spacing: 15) {
+                        ForEach(menus.indices, id: \.self) { index in
+                            RankingCell(rank: index + 1, menu: menus[index])
+                        }
+                    }
+                    .padding(.top, 10)
+                    
                 }
-                .listStyle(.plain)
+                .padding(.horizontal, 20)
             }
-            .padding(.horizontal, 20)
         }
     }
 }
@@ -78,26 +110,37 @@ struct RankingView_Previews: PreviewProvider {
 }
 
 
-struct RankingCell: View {
-    var rank: Int
-    var menu: Menu
-
-    var body: some View {
-        HStack {
-            Text("\(rank)")
-                .font(.headline)
-            
-            menu.image
-                .resizable()
-                .frame(width: 90, height: 70)
-                .clipShape(Circle())
-
-            VStack(alignment: .leading) {
-                Text(menu.name)
-                Text("\(menu.recipe.price, specifier: "%.0f")원")
-                    .font(.subheadline)
-                    .foregroundColor(.gray)
-            }
-        }
-    }
-}
+//struct RankingCell: View {
+//    var rank: Int
+//    var menu: Menu
+//    
+//    var body: some View {
+//        ZStack {
+//            RoundedRectangle(cornerRadius: 10)  // 네모난 셀 배경 추가
+//                .fill(Color("DarkGrey"))  // 배경색 설정
+//                .shadow(color: Color.black.opacity(0.1), radius: 5, x: 0, y: 5)  // 그림자 추가
+//            
+//            HStack {
+//                Text("\(rank).")
+//                    .font(.system(size: 20, weight: .bold))
+//                    .foregroundColor(Color("Point"))
+//                
+//                menu.image
+//                    .resizable()
+//                    .frame(width: 90, height: 70)
+//                
+//                VStack(alignment: .leading) {
+//                    Text(menu.name)
+//                        .font(.system(size: 16, weight: .bold))
+//                        .foregroundColor(.white)
+//                    Text("\(menu.recipe.price, specifier: "%.0f")원")
+//                        .font(.subheadline)
+//                        .foregroundColor(.gray)
+//                }
+//                Spacer()
+//            }
+//            .padding()  // 셀 내부에 패딩 추가
+//        }
+//        .frame(height: 100)  // 셀 높이 설정
+//    }
+//}

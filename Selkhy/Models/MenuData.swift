@@ -13,7 +13,7 @@ let mockMenus: [Menu] = [
     Menu(
         name: "전남친 샌드위치",
         numberOfOrder: 10,
-        story: "전남친만의 비밀 재료가 들어간 샌드위치!\n이것 대문에 다시 연락했어요.",
+        story: "전남친만의 비밀 재료가 들어간 샌드위치!\n이것 때문에 다시 연락했어요.",
         recipe: Recipe(
             ingredients: [
                 Ingredient(name: "토마토", image: Image("Sandwich"), isHidden: true),
@@ -28,7 +28,7 @@ let mockMenus: [Menu] = [
     Menu(
         name: "엄마 손맛 칼국수",
         numberOfOrder: 10,
-        story: "전남친만의 비밀 재료가 들어간 샌드위치!\n이것 대문에 다시 연락했어요.",
+        story: "지난 해에 어머니가 돌아가셨어요.\n어머니의 손길이 묻어있는 마지막 레시피",
         recipe: Recipe(
             ingredients: [
                 Ingredient(name: "토마토", image: Image("Sandwich"), isHidden: true),
@@ -56,7 +56,7 @@ let mockMenus: [Menu] = [
         image: Image("Skewer")),
     
     Menu(
-        name: "김밥",
+        name: "3분 스시 김밥",
         numberOfOrder: 10,
         story: "전남친만의 비밀 재료가 들어간 샌드위치!\n이것 대문에 다시 연락했어요.",
         recipe: Recipe(

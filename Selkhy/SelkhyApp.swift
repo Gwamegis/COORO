@@ -11,7 +11,7 @@ import SwiftUI
 struct SelkhyApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            HomeView()
         }
     }
 }
