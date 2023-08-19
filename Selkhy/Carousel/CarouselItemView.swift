@@ -28,21 +28,24 @@ struct CarouselItemView: View {
                 HStack(spacing: 18) {
                     
                     VStack(spacing: 26) {
-                        Button {
-                            self.isShowIngredientSelection.toggle()
-                        } label: {
-                            if item.ingredients?.count ?? 0 >= 1 {
-                                Image("paperBag")
+                        
+                        if item.ingredients?.count ?? 0 >= 1 {
+                            Image("paperBag")
+                                .resizable()
+                                .scaledToFit()
+                                .frame(width: 70, height: 70)
+                                .onTapGesture {
+                                    isShowIngredientSelection.toggle()
+                                }
+                        } else {
+                            VStack(spacing: 26) {
+                                Image("SelectButton")
                                     .resizable()
-                                    .scaledToFit()
+                                    .scaledToFill()
                                     .frame(width: 70, height: 70)
-                                // .offset(y: 20)
-                            } else {
-                                VStack(spacing: 26) {
-                                    Image("SelectButton")
-                                        .resizable()
-                                        .scaledToFill()
-                                        .frame(width: 70, height: 70)
+                                
+                                .onTapGesture {
+                                    isShowIngredientSelection.toggle()
                                 }
                             }
                         }
@@ -62,16 +65,13 @@ struct CarouselItemView: View {
                     }
                     
                     VStack(spacing: 26) {
-                        Button {
-                            isShowCookActionSelection.toggle()
-                        } label: {
-                            VStack(spacing: 26) {
-                                Image(item.action?.getThumbnailImageFimeName() ?? "SelectButton")
-                                    .resizable()
-                                    .scaledToFill()
-                                    .frame(width: 70, height: 70)
+                        Image(item.action?.getThumbnailImageFimeName() ?? "SelectButton")
+                            .resizable()
+                            .scaledToFill()
+                            .frame(width: 70, height: 70)
+                            .onTapGesture {
+                                isShowCookActionSelection.toggle()
                             }
-                        }
                         
                         if let title = item.action?.actionTitle {
                             Text(title)
@@ -85,16 +85,13 @@ struct CarouselItemView: View {
                     }
                     
                     VStack(spacing: 26) {
-                        Button {
-                            isShowTimeSelection.toggle()
-                        } label: {
-                            VStack(spacing: 26) {
-                                Image("SelectButton")
-                                    .resizable()
-                                    .scaledToFill()
-                                    .frame(width: 70, height: 70)
+                        Image("SelectButton")
+                            .resizable()
+                            .scaledToFill()
+                            .frame(width: 70, height: 70)
+                            .onTapGesture {
+                                isShowTimeSelection.toggle()
                             }
-                        }
                         
                         Text("시간")
                             .font(.system(size: 20, weight: .bold))
