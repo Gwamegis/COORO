@@ -50,16 +50,17 @@ struct RecipeVoteView: View {
                     .padding(.bottom, 20)
                 
                 HStack {
-                    ForEach(menu.recipe.ingredients.indices, id: \.self) { index in
-                        ZStack{
-                            Text(menu.recipe.ingredients[index].name)
-                                .font(.system(size: 16, weight: .bold))
-                                .padding(10)
-                                .background(.green)
-                                .foregroundColor(.white)
-                                .cornerRadius(10)
-                        }
-                    }
+//                    ForEach(menu.recipe.ingredients.indices, id: \.self) { index in
+//                        ZStack{
+//                            Text(menu.recipe.ingredients[index].name)
+//                                .font(.system(size: 16, weight: .bold))
+//                                .padding(10)
+//                                .background(.green)
+//                                .foregroundColor(.white)
+//                                .cornerRadius(10)
+//                        }
+//                    }
+                    FlexibleView(data: menu.recipe.ingredients, isInOrder: false)
                 }
                 .padding(.bottom, 80)
                 

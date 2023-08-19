@@ -17,7 +17,6 @@ struct FlexibleView: View {
             ForEach(Array(computeRows().enumerated()), id: \.offset) { index, rowItem in
                 HStack {
                     ForEach(rowItem) { datum in
-                        
                         if (isInOrder) {
                             IngredientTagView(title: datum.name)
                                 .fixedSize()

@@ -95,6 +95,7 @@ struct TagView: View {
                 .font(.system(size: 16, weight: .bold))
                 .lineLimit(1)
         }
+        .foregroundColor(.white)
         .padding(10)
         .background(isHidden ? Color.Purple : Color.Green)
         .cornerRadius(10)
