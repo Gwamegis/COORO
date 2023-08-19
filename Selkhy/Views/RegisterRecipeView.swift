@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct RegisterRecipeView: View {
-    
+    @EnvironmentObject var menuStore: MenuStore
     @State private var name: String = ""
     @State private var story: String = ""
     @State var menu: Menu?
@@ -106,7 +106,9 @@ struct RegisterRecipeView: View {
                         menu.story = story
                         menu.recipe.ingredients = getIngredients()
                         isCompleted.toggle()
-                        mockMenus.append(menu)
+                        menu.image = Image("FriedRice")
+                        menuStore.mockMenus.append(menu)
+                        // mockMenus.append(menu)
                     }
                 })
             }
