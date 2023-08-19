@@ -23,3 +23,14 @@ extension View {
         .onPreferenceChange(SizePreferenceKey.self, perform: onChange)
     }
 }
+
+extension String {
+    var lastString: String {
+        get {
+            if self.isEmpty { return self }
+            
+            let lastIndex = self.index(before: self.endIndex)
+            return String(self[lastIndex])
+        }
+    }
+}

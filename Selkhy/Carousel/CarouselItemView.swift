@@ -12,6 +12,8 @@ struct CarouselItemView: View {
     let index: Int = 1
     let item: String
     @Binding var isShowIngredientSelection: Bool
+    @Binding var isShowCookActionSelection: Bool
+    @Binding var isShowTimeSelection: Bool
     
     var body: some View {
         ZStack {
@@ -26,7 +28,6 @@ struct CarouselItemView: View {
                     
                     VStack(spacing: 26) {
                         Button {
-                            // TODO: navigatino link = 재료
                             self.isShowIngredientSelection.toggle()
                         } label: {
                             VStack(spacing: 26) {
@@ -45,7 +46,7 @@ struct CarouselItemView: View {
                     
                     VStack(spacing: 26) {
                         Button {
-                            // TODO: navigatino link = 조리
+                            isShowCookActionSelection.toggle()
                         } label: {
                             VStack(spacing: 26) {
                                 Image("SelectButton")
@@ -63,7 +64,7 @@ struct CarouselItemView: View {
                     
                     VStack(spacing: 26) {
                         Button {
-                            // TODO: navigatino link = 시간
+                            isShowTimeSelection.toggle()
                         } label: {
                             VStack(spacing: 26) {
                                 Image("SelectButton")
@@ -123,7 +124,7 @@ struct EmptyCarouselItemView: View {
 
 struct CarouselItemView_Previews: PreviewProvider {
     static var previews: some View {
-        CarouselItemView(item: "hello", isShowIngredientSelection: .constant(false))
+        CarouselItemView(item: "hello", isShowIngredientSelection: .constant(false), isShowCookActionSelection: .constant(false), isShowTimeSelection: .constant(false))
 //        EmptyCarouselItemView()
     }
 }
