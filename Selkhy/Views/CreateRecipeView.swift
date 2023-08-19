@@ -80,7 +80,7 @@ struct CreateRecipeView: View {
             .onChange(of: items[currentIndex].action) { newValue in
                 print(newValue)
                 if let action = newValue {
-                    audioManager.playSoundAsset(assetName: action.getThumbnailImageFimeName())
+                    audioManager.playSoundAsset(assetName: "\(action.getThumbnailImageFimeName())Audio")
                 } else {
                     audioManager.stopSound()
                 }
