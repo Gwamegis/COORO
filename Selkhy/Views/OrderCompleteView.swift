@@ -12,6 +12,7 @@ struct OrderCompleteView: View {
     @Environment(\.dismiss) var dismiss
     @State private var isPresentQrCodeView = false
     @State private var numberOfShakes: CGFloat = 0
+
     private let deviceWidth = UIScreen.main.bounds.width
     
     var body: some View {
