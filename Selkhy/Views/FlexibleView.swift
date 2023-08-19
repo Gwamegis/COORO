@@ -13,16 +13,17 @@ struct FlexibleView: View {
     let isInOrder: Bool
     
     var body: some View {
-        VStack(alignment: .center, spacing: 8) {
+        VStack(alignment: isInOrder ? .leading : .center, spacing: 8) {
             ForEach(Array(computeRows().enumerated()), id: \.offset) { index, rowItem in
                 HStack {
                     ForEach(rowItem) { datum in
+                        
                         if (isInOrder) {
                             IngredientTagView(title: datum.name)
                                 .fixedSize()
                                 .readSize { size in
                                     let width = size.width
-                                    elementsSize[datum.name] = width + 10
+                                    elementsSize[datum.name] = width
                                 }
                         } else {
                             TagView(isHidden: datum.isHidden, text: datum.name)
@@ -45,16 +46,18 @@ struct FlexibleView: View {
         var remainingWidth = availableWidth
         
         for element in data {
-            
+            print("element", element.name, elementsSize[element.name, default: availableWidth])
             let elementWith = elementsSize[element.name, default: availableWidth]
-            if remainingWidth - elementWith < 0 {
-                currentRow += 1
-                remainingWidth = availableWidth
-                rows.append([element])
-            } else {
-                remainingWidth = remainingWidth - elementWith
+            if remainingWidth - elementWith >= 0 {
                 rows[currentRow].append(element)
+            } else {
+                // start a new row
+                currentRow = currentRow + 1
+                rows.append([element])
+                remainingWidth = availableWidth
             }
+            
+            remainingWidth = remainingWidth - elementWith
         }
         return rows
     }
