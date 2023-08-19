@@ -56,7 +56,7 @@ struct RankingCell_Previews: PreviewProvider {
                 ],
                 amount: [3,6,2],
                 price: 3500 ),
-            review: Review(score: 10, photo: Image("sandwich") , content: ""),
+            review: [Review(score: 10, content: "")],
             image: Image("Sandwich")))
     }
 }
