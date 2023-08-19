@@ -91,6 +91,7 @@ struct EmptyCarouselItemView: View {
     
     var body: some View {
         ZStack {
+            Color.Background
             RoundedRectangle(cornerRadius: 20)
                 .strokeBorder(
                     style: StrokeStyle(
