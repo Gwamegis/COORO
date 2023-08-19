@@ -18,13 +18,13 @@ struct CreateRecipeView: View {
     @State var selectedIngredientsEnglishNames: [String] = []
     @State var isShowCookActionSelection: Bool = false
     @State var isShowTimeSelection: Bool = false
-    @State private var isAnimating = true
+    @State private var isAnimating = false
     
     let spacing: CGFloat  = 10
     let itemWidth: CGFloat = 290
     let itemHeight: CGFloat = 208
     
-    @State var player = AVPlayer(url: Bundle.main.url(forResource: "yourAudioFile", withExtension: "mp3")!)
+//    @State var player = AVPlayer(url: Bundle.main.url(forResource: "yourAudioFile", withExtension: "mp3")!)
     
     init() {
             _menu = State(initialValue: Menu(
@@ -69,7 +69,6 @@ struct CreateRecipeView: View {
                         .frame(width: 195)
                         .padding(.bottom, -15)
                         .offset(y: isAnimating ? -5 : 5)
-                        .animation(Animation.easeInOut(duration: 1.0).repeatForever(autoreverses: true))
                         .onAppear {
                             withAnimation(Animation.easeInOut(duration: 1.0).repeatForever(autoreverses: true)) {
                                 isAnimating = true
