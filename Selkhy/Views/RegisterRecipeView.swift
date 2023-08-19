@@ -13,6 +13,7 @@ struct RegisterRecipeView: View {
     @State private var story: String = ""
     @State var menu: Menu?
     @State var isCompleted: Bool = false
+    @State var isAvailableSave: Bool = false
     
     var body: some View {
         ScrollView {
@@ -91,15 +92,16 @@ struct RegisterRecipeView: View {
                     CompleteRegisterRecipeView(name: name)
                 } label: {
                     Text("등록하기")
-                        .foregroundColor(.white)
+                        .foregroundColor(.white.opacity(isAvailableSave ? 1 : 0.4))
                         .font(.system(size: 18, weight: .bold))
                         .padding(.vertical, 18)
                         .frame(maxWidth: .infinity)
                         .background(
                             RoundedRectangle(cornerRadius: 10)
-                                .foregroundColor(.Point)
+                                .foregroundColor(.Point.opacity(isAvailableSave ? 1 : 0.4))
                         )
                 }
+                .disabled(!isAvailableSave)
                 .simultaneousGesture(TapGesture().onEnded{
                     if var menu {
                         menu.name = name
@@ -116,6 +118,12 @@ struct RegisterRecipeView: View {
         .navigationBarBackButtonHidden(true)
         .navigationBarItems(leading: BackButton())
         .navigationTitle("레시피 등록")
+        .onChange(of: name) {_ in
+            isAvailableSave = !(name.isEmpty || story.isEmpty)
+        }
+        .onChange(of: story) {_ in
+            isAvailableSave = !(name.isEmpty || story.isEmpty)
+        }
     }
     
     @ViewBuilder
