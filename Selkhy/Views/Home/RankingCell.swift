@@ -15,7 +15,7 @@ struct RankingCell: View {
         ZStack {
             RoundedRectangle(cornerRadius: 10)  // 네모난 셀 배경 추가
                 .fill(Color("DarkGrey"))  // 배경색 설정
-                
+            
             
             HStack {
                 Text("\(rank).")
@@ -45,21 +45,28 @@ struct RankingCell: View {
 struct RankingCell_Previews: PreviewProvider {
     static var previews: some View {
         RankingCell(rank: 1, menu:
-            Menu(
-            name: "전남친 샌드위치",
-            numberOfOrder: 10,
-            creater: "스윗쿡남",
-            likes: 300,
-            story: "전남친만의 비밀 재료가 들어간 샌드위치!\n이것 때문에 다시 연락했어요.",
-            recipe: Recipe(
-                ingredients: [
-                    Ingredient(name: "토마토", image: Image("Sandwich"), isHidden: true),
-                    Ingredient(name: "토마토", image: Image("Sandwich"), isHidden: false),
-                    Ingredient(name: "토마토", image: Image("Sandwich"), isHidden: false),
-                ],
-                amount: [3,6,2],
-                price: 3500 ),
-            review: [Review(score: 10, content: "")],
-            image: Image("Sandwich")))
+                        Menu(
+                            name: "전남친 샌드위치",
+                            numberOfOrder: 10,
+                            creater: "스윗쿡남",
+                            likes: 300,
+                            story: "전남친만의 비밀 재료가 들어간 샌드위치!\n이것 때문에 다시 연락했어요.",
+                            recipe: Recipe(
+                                ingredients: [
+                                    Ingredient(name: "빵", image: Image("Bread"), isHidden: false),
+                                    Ingredient(name: "블루베리잼", image: Image("Jam"), isHidden: false),
+                                ],
+                                amount: [2, 1],  // 2개의 빵과 1개의 블루베리잼을 사용한다고 가정
+                                price: 3500,
+                                produce: [
+                                    Cook(ingredients: [Ingredient(name: "빵", image: Image("Bread"), isHidden: false),
+                                                       Ingredient(name: "블루베리잼", image: Image("Jam"), isHidden: true)],
+                                         action: .fry
+                                        )
+                                ]
+                            ),
+                            review: [Review(score: 10, photo: Image("Sandwich"), content: "직접 픽업해서 먹었는데, 1위인 이유가 있네요."), Review(score: 10, content: "직접 픽업해서 먹었는데, 1위인 이유가 있네요.")],
+                            image: Image("Sandwich"))
+        )
     }
 }
