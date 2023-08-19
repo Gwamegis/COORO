@@ -10,6 +10,7 @@ import SwiftUI
 struct OrderView: View {
     
     var menu: Menu
+    @State private var isPresented = false
     @State private var ingredients: [Ingredient] = [] {
         didSet {
             isSelectedList = Array(repeating: true, count: ingredients.count)
@@ -135,7 +136,7 @@ struct OrderView: View {
             
             // MARK: - 결제 버튼
             Button {
-                
+                isPresented.toggle()
             } label: {
                 Text("\(menu.recipe.price.numberFormatter()) 결제하기")
                     .foregroundColor(.white)
@@ -148,6 +149,9 @@ struct OrderView: View {
                     .foregroundColor(.Point)
             )
             .padding(.bottom, 25)
+            .fullScreenCover(isPresented: $isPresented) {
+                OrderCompleteView()
+            }
         }
         .padding(.horizontal, 16)
         .background(Color.Background)
