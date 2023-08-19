@@ -14,6 +14,7 @@ struct TimerView: View {
     }
     
     @Binding var isShowTimer: Bool
+    @Binding var cook: Cook
     @State var minute = ""
     @State var second = ""
     @State var minutePlaceholder = "00"
@@ -112,7 +113,7 @@ struct TimerView: View {
             }
             Button {
                 //TODO: 시간값 반환
-                print(timeStringToFormattedString(minute: minute, second: second))
+                cook.time = timeStringToFormattedString(minute: minute, second: second)
                 isShowTimer.toggle()
             } label: {
                 Text("타이머 설정")
@@ -165,8 +166,8 @@ struct TimerView: View {
     }
 }
 
-struct TimerView_Previews: PreviewProvider {
-    static var previews: some View {
-        TimerView(isShowTimer: .constant(true))
-    }
-}
+//struct TimerView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        TimerView(isShowTimer: .constant(true))
+//    }
+//}

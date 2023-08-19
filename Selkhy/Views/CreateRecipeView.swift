@@ -58,13 +58,16 @@ struct CreateRecipeView: View {
                     .resizable()
                     .scaledToFit()
                     .frame(width: 300, height: 240)
-                Image("Fire")
-                    .resizable()
-                    .scaledToFit()
-                    .frame(width: 195)
-                    .padding(.bottom, -15)
-                    .offset(y: isAnimating ? -5 : 5)
-                    .animation(Animation.easeInOut(duration: 1.0).repeatForever(autoreverses: true))
+                
+                if selectedAction != nil {
+                    Image("Fire")
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: 195)
+                        .padding(.bottom, -15)
+                        .offset(y: isAnimating ? -5 : 5)
+                        .animation(Animation.easeInOut(duration: 1.0).repeatForever(autoreverses: true))
+                }
             }
             .padding(.bottom, -50)
             
@@ -88,7 +91,7 @@ struct CreateRecipeView: View {
                     SelectedCookActionView(isShowCookActionSelection: $isShowCookActionSelection, cook: $items[currentIndex])
                 }
                 .fullScreenCover(isPresented: $isShowTimeSelection) {
-                    TimerView(isShowTimer: $isShowTimeSelection)
+                    TimerView(isShowTimer: $isShowTimeSelection, cook: $items[currentIndex])
                 }
             }
                      .padding(.bottom, 50)
