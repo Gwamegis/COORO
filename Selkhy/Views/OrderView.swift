@@ -134,11 +134,11 @@ struct OrderView: View {
                     .font(.system(size: 18, weight: .bold))
                     .padding(20)
                     .frame(maxWidth: .infinity)
+                    .background(
+                        RoundedRectangle(cornerRadius: 10)
+                            .foregroundColor(.Point)
+                    )
             }
-            .background(
-                RoundedRectangle(cornerRadius: 10)
-                    .foregroundColor(.Point)
-            )
             .padding(.bottom, 25)
             .fullScreenCover(isPresented: $isPresented) {
                 OrderCompleteView()
@@ -149,6 +149,8 @@ struct OrderView: View {
         .onAppear {
             ingredients = menu.recipe.ingredients
         }
+        .navigationBarBackButtonHidden(true)
+        .navigationBarItems(leading: BackButton())
     }
 }
 

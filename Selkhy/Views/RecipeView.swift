@@ -56,25 +56,28 @@ struct RecipeView: View {
                         .frame(maxWidth: .infinity, alignment: .center)
                         .padding(.top, 10)
                     }
-                    
                 }
                 .padding(.horizontal, 20)
                 .padding(.bottom, 40)
-                Button("쿠로에게 주문 요청하기") {
-                    //TODO: action
+                NavigationLink {
+                    OrderView(menu: menu)
+                } label: {
+                    Text("쿠로에게 주문 요청하기")
+                        .font(.system(size: 18, weight: .bold))
+                        .foregroundColor(.white)
+                        .frame(maxWidth: .infinity)
+                        .padding(.vertical, 19)
+                        .background(Color.Point)
+                        .cornerRadius(10)
                 }
-                .font(.system(size: 18, weight: .bold))
-                .foregroundColor(.white)
-                .frame(maxWidth: .infinity)
-                .padding(.vertical, 19)
-                .background(Color.Point)
-                .cornerRadius(10)
                 .padding(.horizontal, 20)
                 .padding(.bottom, 44)
             }
         }
         .background(Color.Background)
         .scrollIndicators(.hidden)
+        .navigationBarBackButtonHidden(true)
+        .navigationBarItems(leading: BackButton())
     }
 }
 
