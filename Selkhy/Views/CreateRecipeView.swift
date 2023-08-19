@@ -12,6 +12,8 @@ struct CreateRecipeView: View {
     @State var items = [ "title1", "title2", "title3", "title4" ]
     @State var currentIndex = 0
     @State var isShowIngredientSelection: Bool = false
+    @State var isShowCookActionSelection: Bool = false
+    
     let spacing: CGFloat  = 10
     let itemWidth: CGFloat = 290
     let itemHeight: CGFloat = 208
@@ -40,9 +42,14 @@ struct CreateRecipeView: View {
                      itemHeight: itemHeight,
                      opacity: 0,
                      sizeScale: 0.1) { item in
-                CarouselItemView(item: item, isShowIngredientSelection: $isShowIngredientSelection)
+                CarouselItemView(item: item,
+                                 isShowIngredientSelection: $isShowIngredientSelection,
+                                 isShowCookActionSelection: $isShowCookActionSelection)
                     .fullScreenCover(isPresented: $isShowIngredientSelection) {
                         IngredientSelectionView(isShowIngredientSelection: $isShowIngredientSelection)
+                    }
+                    .fullScreenCover(isPresented: $isShowCookActionSelection) {
+                        SelectedCookActionView(isShowCookActionSelection: $isShowCookActionSelection)
                     }
             }
                      .padding(.bottom, 50)
