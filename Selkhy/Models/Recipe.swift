@@ -11,7 +11,7 @@ import Foundation
 struct Recipe {
     var ingredients: [Ingredient]
     var amount: [Int]
-    var price: Double
+    var price: Int
     // var produce: [Cook]
 }
 
