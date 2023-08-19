@@ -8,13 +8,79 @@
 import SwiftUI
 
 struct RankingView: View {
-    let recipes: [Recipe] = [
-            Recipe(ingredients: [Food(name: "전 남친 샌드위치", image: UIImage(named: "Sandwich")!)], amount: [1], price: 10000),
-            Recipe(ingredients: [Food(name: "엄마 손맛 칼국수", image: UIImage(named: "Noodle")!)], amount: [2], price: 12000),
-            Recipe(ingredients: [Food(name: "여친이 시킨 꼬치", image: UIImage(named: "Skewer")!)], amount: [3], price: 7000),
-            Recipe(ingredients: [Food(name: "김밥", image: UIImage(named: "Kimbob")!)], amount: [1], price: 5000),
-            Recipe(ingredients: [Food(name: "어남 선생이 또 일냈다", image: UIImage(named: "Meet")!)], amount: [1], price: 9000)
-        ]
+    let menus: [Menu] = [
+        Menu(
+            name: "전남친 샌드위치",
+            numberOfOrder: 10,
+            story: "전남친만의 비밀 재료가 들어간 샌드위치!\n이것 대문에 다시 연락했어요.",
+            recipe: Recipe(
+                ingredients: [
+                    Ingredient(name: "토마토", image: Image("Sandwich"), isHidden: true),
+                    Ingredient(name: "토마토", image: Image("Sandwich"), isHidden: false),
+                    Ingredient(name: "토마토", image: Image("Sandwich"), isHidden: false),
+                ],
+                amount: [3,6,2],
+                price: 3500 ),
+            review: Review(score: 10, photo: Image("sandwich") , content: ""),
+            image: Image("Sandwich")),
+        Menu(
+            name: "엄마 손맛 칼국수",
+            numberOfOrder: 10,
+            story: "전남친만의 비밀 재료가 들어간 샌드위치!\n이것 대문에 다시 연락했어요.",
+            recipe: Recipe(
+                ingredients: [
+                    Ingredient(name: "토마토", image: Image("Sandwich"), isHidden: true),
+                    Ingredient(name: "토마토", image: Image("Sandwich"), isHidden: false),
+                    Ingredient(name: "토마토", image: Image("Sandwich"), isHidden: false),
+                ],
+                amount: [3,6,2],
+                price: 12000 ),
+            review: Review(score: 10, photo: Image("sandwich") , content: ""),
+            image: Image("Noodle")),
+        Menu(
+            name: "여친이 시킨 꼬치",
+            numberOfOrder: 10,
+            story: "전남친만의 비밀 재료가 들어간 샌드위치!\n이것 대문에 다시 연락했어요.",
+            recipe: Recipe(
+                ingredients: [
+                    Ingredient(name: "토마토", image: Image("Sandwich"), isHidden: true),
+                    Ingredient(name: "토마토", image: Image("Sandwich"), isHidden: false),
+                    Ingredient(name: "토마토", image: Image("Sandwich"), isHidden: false),
+                ],
+                amount: [3,6,2],
+                price: 7000 ),
+            review: Review(score: 10, photo: Image("sandwich") , content: ""),
+            image: Image("Skewer")),
+        Menu(
+            name: "김밥",
+            numberOfOrder: 10,
+            story: "전남친만의 비밀 재료가 들어간 샌드위치!\n이것 대문에 다시 연락했어요.",
+            recipe: Recipe(
+                ingredients: [
+                    Ingredient(name: "토마토", image: Image("Sandwich"), isHidden: true),
+                    Ingredient(name: "토마토", image: Image("Sandwich"), isHidden: false),
+                    Ingredient(name: "토마토", image: Image("Sandwich"), isHidden: false),
+                ],
+                amount: [3,6,2],
+                price: 5000 ),
+            review: Review(score: 10, photo: Image("sandwich") , content: ""),
+            image: Image("Kimbob")),
+        Menu(
+            name: "어남 선생이 또 일냈다",
+            numberOfOrder: 10,
+            story: "전남친만의 비밀 재료가 들어간 샌드위치!\n이것 대문에 다시 연락했어요.",
+            recipe: Recipe(
+                ingredients: [
+                    Ingredient(name: "토마토", image: Image("Sandwich"), isHidden: true),
+                    Ingredient(name: "토마토", image: Image("Sandwich"), isHidden: false),
+                    Ingredient(name: "토마토", image: Image("Sandwich"), isHidden: false),
+                ],
+                amount: [3,6,2],
+                price: 9000 ),
+            review: Review(score: 10, photo: Image("sandwich") , content: ""),
+            image: Image("Meet"))
+        
+    ]
 
         var body: some View {
             VStack(alignment: .leading) {
@@ -34,14 +100,14 @@ struct RankingView: View {
                 ZStack{
                     Color.red
                     VStack{
-                    Image(uiImage: recipes[0].ingredients[0].image)
+                        menus[0].image
                         .resizable()
                         .scaledToFit()
                         .frame(width: 300)
                         VStack{
                             HStack{
-                                Text(recipes[0].ingredients[0].name)
-                                Text("\(recipes[0].price, specifier: "%.0f")원")
+                                Text(menus[0].name)
+                                Text("\(menus[0].recipe.price, specifier: "%.0f")원")
                             }
                             Text("설명 솰라솰라")
                         }
@@ -51,8 +117,8 @@ struct RankingView: View {
                 
                 Text("이번주 랭킹")
                 List {
-                    ForEach(1 ..< recipes.count) { index in
-                        RankingCell(rank: index + 1, recipe: recipes[index])
+                    ForEach(1 ..< menus.count) { index in
+                        RankingCell(rank: index + 1, menu: menus[index])
                             .listRowInsets(EdgeInsets())
                     }
                 }
@@ -71,14 +137,14 @@ struct RankingView_Previews: PreviewProvider {
 
 struct RankingCell: View {
     var rank: Int
-    var recipe: Recipe
+    var menu: Menu
 
     var body: some View {
         HStack {
             Text("\(rank)")
                 .font(.headline)
             
-            Image(uiImage: recipe.ingredients[0].image)  // 첫 번째 재료의 이미지를 사용
+            menu.image  // 첫 번째 재료의 이미지를 사용
             // Image(systemName: "chevron.down")
                 .resizable()
                 .frame(width: 90, height: 70)
@@ -86,8 +152,8 @@ struct RankingCell: View {
             
             
             VStack(alignment: .leading) {
-                Text(recipe.ingredients[0].name)
-                Text("\(recipe.price, specifier: "%.0f")원")
+                Text(menu.name)
+                Text("\(menu.recipe.price, specifier: "%.0f")원")
                     .font(.subheadline)
                     .foregroundColor(.gray)
             }

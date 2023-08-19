@@ -9,7 +9,7 @@ import Foundation
 
 // 알아서.. 바꿔주세요..
 struct Recipe {
-    var ingredients: [Food]
+    var ingredients: [Ingredient]
     var amount: [Int]
     var price: Double
     // var produce: [Cook]
