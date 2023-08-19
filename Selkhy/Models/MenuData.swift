@@ -13,7 +13,7 @@ let mockMenus: [Menu] = [
     Menu(
         name: "전남친 샌드위치",
         numberOfOrder: 10,
-        story: "전남친만의 비밀 재료가 들어간 샌드위치!\n이것 대문에 다시 연락했어요.",
+        story: "전남친만의 비밀 재료가 들어간 샌드위치!\n이것 때문에 다시 연락했어요.",
         recipe: Recipe(
             ingredients: [
                 Ingredient(name: "토마토", image: Image("Sandwich"), isHidden: true),
@@ -22,13 +22,13 @@ let mockMenus: [Menu] = [
             ],
             amount: [3,6,2],
             price: 3500 ),
-        review: Review(score: 10, photo: Image("sandwich") , content: ""),
+        review: [Review(score: 10, photo: Image("sandwich") , content: "")],
         image: Image("Sandwich")),
     
     Menu(
         name: "엄마 손맛 칼국수",
         numberOfOrder: 10,
-        story: "전남친만의 비밀 재료가 들어간 샌드위치!\n이것 대문에 다시 연락했어요.",
+        story: "지난 해에 어머니가 돌아가셨어요.\n어머니의 손길이 묻어있는 마지막 레시피",
         recipe: Recipe(
             ingredients: [
                 Ingredient(name: "토마토", image: Image("Sandwich"), isHidden: true),
@@ -37,7 +37,7 @@ let mockMenus: [Menu] = [
             ],
             amount: [3,6,2],
             price: 12000 ),
-        review: Review(score: 10, photo: Image("sandwich") , content: ""),
+        review: [Review(score: 10, photo: Image("sandwich") , content: "")],
         image: Image("Noodle")),
     
     Menu(
@@ -52,11 +52,11 @@ let mockMenus: [Menu] = [
             ],
             amount: [3,6,2],
             price: 7000 ),
-        review: Review(score: 10, photo: Image("sandwich") , content: ""),
+        review: [Review(score: 10, photo: Image("sandwich") , content: "")],
         image: Image("Skewer")),
     
     Menu(
-        name: "김밥",
+        name: "3분 스시 김밥",
         numberOfOrder: 10,
         story: "전남친만의 비밀 재료가 들어간 샌드위치!\n이것 대문에 다시 연락했어요.",
         recipe: Recipe(
@@ -67,7 +67,7 @@ let mockMenus: [Menu] = [
             ],
             amount: [3,6,2],
             price: 5000 ),
-        review: Review(score: 10, photo: Image("sandwich") , content: ""),
+        review: [Review(score: 10, photo: Image("sandwich") , content: "")],
         image: Image("Kimbob")),
     
     Menu(
@@ -82,7 +82,7 @@ let mockMenus: [Menu] = [
             ],
             amount: [3,6,2],
             price: 9000 ),
-        review: Review(score: 10, photo: Image("sandwich") , content: ""),
+        review: [Review(score: 10, photo: Image("sandwich") , content: "")],
         image: Image("Meet"))
     
 ]
