@@ -16,6 +16,33 @@ struct CompleteRegisterRecipeView: View {
     var body: some View {
         ZStack(alignment: .top) {
             Color.Background.ignoresSafeArea()
+            
+            HStack(spacing: 0){
+                Button {
+                } label: {
+                    Image(systemName: "xmark")
+                        .font(.system(size: 20, weight: .bold))
+                        .foregroundColor(.clear)
+                }
+                Spacer()
+                Text("레시피 등록 완료")
+                    .font(.system(size: 20, weight: .bold))
+                    .foregroundColor(.white)
+                    .frame(maxWidth: .infinity)
+                Spacer()
+                Button {
+                    withAnimation {
+                        NavigationUtil.popToRootView()
+                        dismiss()
+                    }
+                } label: {
+                    Image(systemName: "xmark")
+                        .font(.system(size: 20, weight: .bold))
+                        .foregroundColor(.white)
+                }
+            }
+            .padding(.horizontal, 20)
+            
             Image("completeBg")
                 .resizable()
                 .scaledToFit()
@@ -45,23 +72,6 @@ struct CompleteRegisterRecipeView: View {
         .navigationBarBackButtonHidden()
         .onAppear {
             self.isAnimating = true
-        }
-        .toolbar {
-            ToolbarItem(placement: .navigation) {
-                Text("레시피 등록 완료")
-                    .font(.system(size: 20, weight: .bold ))
-                    .foregroundColor(.white)
-            }
-            ToolbarItem(placement: .navigationBarTrailing) {
-                Button {
-                    NavigationUtil.popToRootView()
-                    dismiss()
-                } label: {
-                    Image(systemName: "xmark")
-                        .font(.system(size: 20, weight: .bold ))
-                        .foregroundColor(.white)
-                }
-            }
         }
     }
 }

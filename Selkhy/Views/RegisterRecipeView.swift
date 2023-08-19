@@ -38,7 +38,10 @@ struct RegisterRecipeView: View {
                               prompt: Text("레시피 이름을 지어주세요.").foregroundColor(.LightGrey)
                     )
                     .font(.system(size: 14))
-                    
+                    .padding(EdgeInsets(top: 10, leading: 20, bottom: 10, trailing: 20))
+                    .background(Color.Grey03)
+                    .cornerRadius(10)
+                    .foregroundColor(.white)
                 }
                 
                 VStack(alignment: .leading, spacing: 10) {
@@ -50,6 +53,10 @@ struct RegisterRecipeView: View {
                               prompt: Text("레시피 사연을 작성해주세요.").foregroundColor(.LightGrey)
                     )
                     .font(.system(size: 14))
+                    .padding(EdgeInsets(top: 10, leading: 20, bottom: 10, trailing: 20))
+                    .background(Color.Grey03)
+                    .cornerRadius(10)
+                    .foregroundColor(.white)
                 }
                 
                 VStack(alignment: .leading, spacing: 10) {
