@@ -25,9 +25,7 @@ let mockMenus: [Menu] = [
             price: 3500,
             produce: [
                 Cook(ingredients: [Ingredient(name: "빵", image: Image("Bread"), isHidden: false),
-                                   Ingredient(name: "블루베리잼", image: Image("Jam"), isHidden: true)],
-                     action: .fry
-                )
+                                   Ingredient(name: "블루베리잼", image: Image("Jam"), isHidden: true)], action: .fry)
             ]
         ),
         review: [Review(score: 10, photo: Image("Sandwich"), content: "직접 픽업해서 먹었는데, 1위인 이유가 있네요."), Review(score: 10, content: "직접 픽업해서 먹었는데, 1위인 이유가 있네요.")],
@@ -68,7 +66,8 @@ let mockMenus: [Menu] = [
             amount: [5,5],
             price: 7000,
             produce: [
-                Cook(ingredients: [Ingredient(name: "고기", image: Image("Meat"), isHidden: false), Ingredient(name: "파", image: Image("GreenOnion"), isHidden: false)], action: .roast)
+                Cook(ingredients: [Ingredient(name: "고기", image: Image("Meat"), isHidden: false),
+                                   Ingredient(name: "파", image: Image("GreenOnion"), isHidden: false)], action: .roast)
             ]
         ),
         review: [Review(score: 10, photo: Image("Sandwich") , content: "")],

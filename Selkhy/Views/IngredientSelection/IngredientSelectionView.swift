@@ -9,6 +9,10 @@ import SwiftUI
 
 struct IngredientSelectionView: View {
     @Binding var isShowIngredientSelection: Bool
+    @Binding var menu: Menu?
+    @Binding var currentIndex: Int
+    @Binding var selectedEnglishNames: [String]
+
     // 재료 리스트들
     let vegetables: [(name: String, english: String)] = [
         ("당근", "carrot"),
@@ -43,6 +47,47 @@ struct IngredientSelectionView: View {
     @State private var meatsSelected: [Bool] = Array(repeating: false, count: 4)
     @State private var dairySelected: [Bool] = Array(repeating: false, count: 4)
     @State private var grainSelected: [Bool] = Array(repeating: false, count: 2)
+    
+    func selectedIngredients(from items: [(name: String, english: String)], using selections: [Bool]) -> [Ingredient] {
+        var ingredients: [Ingredient] = []
+        
+        for (index, item) in items.enumerated() {
+            if selections[index] {
+                ingredients.append(Ingredient(name: item.name, image: Image(item.english), isHidden: false))
+            }
+        }
+        return ingredients
+    }
+    
+    func onConfirmSelection() {
+        let allSelectedIngredients = selectedIngredients(from: vegetables, using: vegetablesSelected) +
+            selectedIngredients(from: meats, using: meatsSelected) +
+            selectedIngredients(from: dairy, using: dairySelected) +
+            selectedIngredients(from: grain, using: grainSelected)
+
+
+        selectedEnglishNames.removeAll() // 기존 배열 클리어
+        selectedEnglishNames = allSelectedIngredients.compactMap { ingredient in
+            let englishName = vegetables.first(where: { $0.name == ingredient.name })?.english ??
+                              meats.first(where: { $0.name == ingredient.name })?.english ??
+                              dairy.first(where: { $0.name == ingredient.name })?.english ??
+                              grain.first(where: { $0.name == ingredient.name })?.english
+
+            return englishName != nil ? englishName! + "2" : nil
+        }
+        
+        let newProduce = Cook(ingredients: allSelectedIngredients, action: .fry)
+
+        if currentIndex >= 0 && currentIndex < menu?.recipe.produce.count ?? 0 {
+            menu?.recipe.produce[currentIndex] = newProduce
+        } else {
+            menu?.recipe.produce.append(newProduce)
+        }
+        isShowIngredientSelection = false
+    }
+
+
+
     
     // 그리드 뷰 생성 함수
     func createGridView(title: String, items: [(name: String, english: String)], selection: Binding<[Bool]>) -> some View {
@@ -93,7 +138,7 @@ struct IngredientSelectionView: View {
                         .padding(.top)
                         .foregroundColor(.white)
                         .padding(.trailing, 120)
-
+                    
                     Button(action: {
                         isShowIngredientSelection = false
                     }) {
@@ -113,10 +158,7 @@ struct IngredientSelectionView: View {
                 dairySelected.filter { $0 }.count +
                 grainSelected.filter { $0 }.count
                 
-                Button(action: {
-                    // 필요한 액션을 여기에 작성
-                    isShowIngredientSelection = false
-                }) {
+                Button(action: onConfirmSelection) {
                     Text("\(totalSelected)가지 재료선택")
                         .font(.system(size: 18))
                         .foregroundColor(.white)
@@ -125,18 +167,20 @@ struct IngredientSelectionView: View {
                         .background(Color.blue)
                         .cornerRadius(10)
                 }
-                .opacity(totalSelected > 0 ? 1 : 0)  // 이 줄을 추가
+                .opacity(totalSelected > 0 ? 1 : 0)
                 .padding(.top, 20)
+
                 
                 Spacer()
             }
             .padding()
         }
     }
+    
 }
 
-struct IngredientSelectionView_Previews: PreviewProvider {
-    static var previews: some View {
-        IngredientSelectionView(isShowIngredientSelection: .constant(false))
-    }
-}
+//struct IngredientSelectionView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        IngredientSelectionView(isShowIngredientSelection: .constant(false), menu: Menu()
+//    }
+//}
