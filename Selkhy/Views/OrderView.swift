@@ -158,6 +158,8 @@ struct OrderView: View {
         .onAppear {
             ingredients = menu.recipe.ingredients
         }
+        .navigationBarBackButtonHidden(true)
+        .navigationBarItems(leading: BackButton())
     }
     
     @ViewBuilder
