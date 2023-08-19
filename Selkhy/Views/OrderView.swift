@@ -11,12 +11,7 @@ struct OrderView: View {
     
     var menu: Menu
     @State private var isPresented = false
-    @State private var ingredients: [Ingredient] = [] {
-        didSet {
-            isSelectedList = Array(repeating: true, count: ingredients.count)
-        }
-    }
-    @State private var isSelectedList: [Bool] = []
+    @State private var ingredients: [Ingredient] = []
     private let toastMessageText: Text = {
         var t = Text("로봇팔이 조리해서 ")
             .foregroundColor(.white)
@@ -84,11 +79,7 @@ struct OrderView: View {
                     .foregroundColor(.white)
                     .font(.system(size: 14, weight: .bold))
                 
-                HStack {
-                    ForEach(Array(ingredients.enumerated()), id: \.offset) { index, ingredient in
-                        getIngredientTagView(with: ingredient, at: index)
-                    }
-                }
+                FlexibleView(data: ingredients, isInOrder: true)
             }
             
             HStack {
@@ -159,23 +150,25 @@ struct OrderView: View {
             ingredients = menu.recipe.ingredients
         }
     }
+}
+
+struct IngredientTagView: View {
+    var title: String
+    @State var isSelected: Bool = true
     
-    @ViewBuilder
-    private func getIngredientTagView(with ingredient: Ingredient, at index: Int) -> some View {
-        let isSelected = isSelectedList[index]
+    var body: some View {
         ZStack {
-            Text("\(ingredient.name) \(Image(systemName: isSelected ? "xmark" : "plus"))")
+            Text("\(title) \(Image(systemName: isSelected ? "xmark" : "plus"))")
                 .font(.system(size: 16, weight: .bold))
                 .foregroundColor(.white)
                 .padding(10)
         }
-        
         .background(
             RoundedRectangle(cornerRadius: 10)
                 .foregroundColor(isSelected ? Color.Green : Color.DarkGrey)
         )
         .onTapGesture {
-            isSelectedList[index].toggle()
+            isSelected.toggle()
         }
     }
 }

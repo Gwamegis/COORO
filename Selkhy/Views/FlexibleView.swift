@@ -18,7 +18,12 @@ struct FlexibleView: View {
                 HStack {
                     ForEach(rowItem) { datum in
                         if (isInOrder) {
-                            
+                            IngredientTagView(title: datum.name)
+                                .fixedSize()
+                                .readSize { size in
+                                    let width = size.width
+                                    elementsSize[datum.name] = width + 10
+                                }
                         } else {
                             TagView(isHidden: datum.isHidden, text: datum.name)
                                 .fixedSize()
