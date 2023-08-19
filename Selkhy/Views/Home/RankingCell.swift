@@ -15,7 +15,7 @@ struct RankingCell: View {
         ZStack {
             RoundedRectangle(cornerRadius: 10)  // 네모난 셀 배경 추가
                 .fill(Color("DarkGrey"))  // 배경색 설정
-                .shadow(color: Color.black.opacity(0.1), radius: 5, x: 0, y: 5)  // 그림자 추가
+                
             
             HStack {
                 Text("\(rank).")
@@ -30,9 +30,10 @@ struct RankingCell: View {
                     Text(menu.name)
                         .font(.system(size: 16, weight: .bold))
                         .foregroundColor(.white)
-                    Text("\(menu.recipe.price, specifier: "%.0f")원")
-                        .font(.subheadline)
-                        .foregroundColor(.gray)
+                        .padding(.bottom, 5)
+                    Text("\(menu.likes)명 기대중")
+                        .font(.system(size: 12))
+                        .foregroundColor(Color.Point)
                 }
                 Spacer()
             }
@@ -47,6 +48,8 @@ struct RankingCell_Previews: PreviewProvider {
             Menu(
             name: "전남친 샌드위치",
             numberOfOrder: 10,
+            creater: "스윗쿡남",
+            likes: 300,
             story: "전남친만의 비밀 재료가 들어간 샌드위치!\n이것 때문에 다시 연락했어요.",
             recipe: Recipe(
                 ingredients: [

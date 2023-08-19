@@ -25,7 +25,7 @@ struct MenuCell: View {
                         
                         Spacer()
                         
-                        Text("\(menu.recipe.price, specifier: "%.0f")원")
+                        Text("\(menu.recipe.price)원")
                             .font(.system(size: 18, weight: .bold))
                             .foregroundColor(Color("Point"))
                     }
@@ -48,6 +48,8 @@ struct MenuCell_Previews: PreviewProvider {
         MenuCell(menu: Menu(
             name: "전남친 샌드위치",
             numberOfOrder: 10,
+            creater: "스윗쿡남",
+            likes: 300,
             story: "전남친만의 비밀 재료가 들어간 샌드위치!\n이것 때문에 다시 연락했어요.",
             recipe: Recipe(
                 ingredients: [

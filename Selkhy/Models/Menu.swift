@@ -10,6 +10,8 @@ import SwiftUI
 struct Menu {
     var name: String
     var numberOfOrder: Int
+    var creater: String
+    var likes: Int
     var story: String
     var recipe: Recipe
     var review: [Review]
