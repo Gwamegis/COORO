@@ -14,6 +14,6 @@ enum CookAction {
 }
 
 struct Cook {
-    var ingredients: [Food]?
+    var ingredients: [Ingredient]?
     var action: CookAction
 }
