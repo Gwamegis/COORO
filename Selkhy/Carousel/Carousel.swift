@@ -52,6 +52,12 @@ struct Carousel<Item, ItemView: View> : View {
                                     .id(index)
                             } else {
                                 EmptyCarouselItemView()
+                                    .onTapGesture {
+                                        withAnimation {
+                                            guard let last = items.last else { return }
+                                            items.append(last)   
+                                        }
+                                    }
                             }
                         }
                         .scaleEffect(max(1.0 - abs(distance(index)) * sizeScale, 0.0001))
