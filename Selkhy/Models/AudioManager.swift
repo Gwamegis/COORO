@@ -14,7 +14,7 @@ class AudioManager {
     
     func playSound(action: CookAction) {
         print(action.getThumbnailImageFimeName())
-        guard let url = Bundle.main.url(forResource: action.getThumbnailImageFimeName(), withExtension: nil) else { return }
+        guard let url = Bundle.main.url(forResource: "\(action.getThumbnailImageFimeName())Audio", withExtension: nil) else { return }
         print(url)
         do {
             player = try AVAudioPlayer(contentsOf: url)
