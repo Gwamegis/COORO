@@ -26,8 +26,9 @@ struct CompleteCreateRecipeView: View {
                     .resizable()
                     .scaledToFit()
                     .frame(width: 285)
-                    .offset(y: isAnimating ? -10 : 10)
-                    .animation(Animation.interpolatingSpring(stiffness: 200, damping: 5).repeatForever(autoreverses: true))
+                    .offset(y: isAnimating ? 0 : -10)
+                    .scaleEffect(isAnimating ? 1.1 : 1.0)
+                    .animation(Animation.interpolatingSpring(stiffness: 150, damping: 5).repeatForever(autoreverses: true))
                 
                 Text("\(name)\n생성 완료!")
                     .font(.system(size: 30, weight: .bold))
@@ -40,6 +41,16 @@ struct CompleteCreateRecipeView: View {
         }
         .onAppear {
             self.isAnimating = true
+        }
+        .toolbar {
+            ToolbarItem(placement: .navigation) {
+                Text("레시피 등록 완료")
+                    .font(.system(size: 20, weight: .bold ))
+            }
+            ToolbarItem(placement: .navigationBarTrailing) {
+                Image(systemName: "xmark")
+                    .font(.system(size: 20, weight: .bold ))
+            }
         }
     }
 }
