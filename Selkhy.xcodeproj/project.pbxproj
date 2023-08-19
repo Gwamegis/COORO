@@ -14,6 +14,7 @@
 		2080336E2A904ACC009298E0 /* SelkhyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2080336D2A904ACC009298E0 /* SelkhyTests.swift */; };
 		208033782A904ACC009298E0 /* SelkhyUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 208033772A904ACC009298E0 /* SelkhyUITests.swift */; };
 		2080337A2A904ACC009298E0 /* SelkhyUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 208033792A904ACC009298E0 /* SelkhyUITestsLaunchTests.swift */; };
+		208033872A907A03009298E0 /* RankingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 208033862A907A03009298E0 /* RankingView.swift */; };
 		876F90592A9056DB00F4466E /* RecipeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 876F90582A9056DB00F4466E /* RecipeView.swift */; };
 		876F905B2A9056E900F4466E /* OrderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 876F905A2A9056E900F4466E /* OrderView.swift */; };
 		876F905D2A9056FF00F4466E /* Menu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 876F905C2A9056FF00F4466E /* Menu.swift */; };
@@ -21,6 +22,7 @@
 		876F90612A90578200F4466E /* Ingredient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 876F90602A90578200F4466E /* Ingredient.swift */; };
 		876F90632A9058E100F4466E /* Review.swift in Sources */ = {isa = PBXBuildFile; fileRef = 876F90622A9058E100F4466E /* Review.swift */; };
 		876F90652A905E1B00F4466E /* Cook.swift in Sources */ = {isa = PBXBuildFile; fileRef = 876F90642A905E1B00F4466E /* Cook.swift */; };
+		876F90672A90A1D800F4466E /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 876F90662A90A1D800F4466E /* Launch Screen.storyboard */; };
 		F9BF4E052A90A3FD009D4624 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9BF4E042A90A3FD009D4624 /* Colors.swift */; };
 /* End PBXBuildFile section */
 
@@ -52,6 +54,7 @@
 		208033732A904ACC009298E0 /* SelkhyUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SelkhyUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		208033772A904ACC009298E0 /* SelkhyUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelkhyUITests.swift; sourceTree = "<group>"; };
 		208033792A904ACC009298E0 /* SelkhyUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelkhyUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		208033862A907A03009298E0 /* RankingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankingView.swift; sourceTree = "<group>"; };
 		876F90582A9056DB00F4466E /* RecipeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeView.swift; sourceTree = "<group>"; };
 		876F905A2A9056E900F4466E /* OrderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderView.swift; sourceTree = "<group>"; };
 		876F905C2A9056FF00F4466E /* Menu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Menu.swift; sourceTree = "<group>"; };
@@ -59,6 +62,7 @@
 		876F90602A90578200F4466E /* Ingredient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ingredient.swift; sourceTree = "<group>"; };
 		876F90622A9058E100F4466E /* Review.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Review.swift; sourceTree = "<group>"; };
 		876F90642A905E1B00F4466E /* Cook.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cook.swift; sourceTree = "<group>"; };
+		876F90662A90A1D800F4466E /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		F9BF4E042A90A3FD009D4624 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -150,6 +154,8 @@
 				2080335E2A904ACA009298E0 /* ContentView.swift */,
 				876F90582A9056DB00F4466E /* RecipeView.swift */,
 				876F905A2A9056E900F4466E /* OrderView.swift */,
+				208033862A907A03009298E0 /* RankingView.swift */,
+				876F90662A90A1D800F4466E /* Launch Screen.storyboard */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -271,6 +277,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				876F90672A90A1D800F4466E /* Launch Screen.storyboard in Resources */,
 				208033642A904ACC009298E0 /* Preview Assets.xcassets in Resources */,
 				208033612A904ACC009298E0 /* Assets.xcassets in Resources */,
 			);
@@ -305,6 +312,7 @@
 				876F905B2A9056E900F4466E /* OrderView.swift in Sources */,
 				2080335F2A904ACA009298E0 /* ContentView.swift in Sources */,
 				876F905F2A90570E00F4466E /* Recipe.swift in Sources */,
+				208033872A907A03009298E0 /* RankingView.swift in Sources */,
 				2080335D2A904ACA009298E0 /* SelkhyApp.swift in Sources */,
 				876F905D2A9056FF00F4466E /* Menu.swift in Sources */,
 			);
@@ -471,6 +479,7 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = "Launch Screen.storyboard";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -500,6 +509,7 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = "Launch Screen.storyboard";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
