@@ -31,6 +31,7 @@
 		87CF06872A90CC37008BF19B /* OrderCompleteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87CF06862A90CC37008BF19B /* OrderCompleteView.swift */; };
 		87CF06892A90E76A008BF19B /* QrCodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87CF06882A90E76A008BF19B /* QrCodeView.swift */; };
 		87CF068B2A90FD87008BF19B /* NavigationUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87CF068A2A90FD87008BF19B /* NavigationUtils.swift */; };
+		87CF068E2A910903008BF19B /* ShakeEffect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87CF068D2A910903008BF19B /* ShakeEffect.swift */; };
 		F9BF4E052A90A3FD009D4624 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9BF4E042A90A3FD009D4624 /* Colors.swift */; };
 		F9BF4E0B2A90B8B9009D4624 /* ReviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9BF4E0A2A90B8B9009D4624 /* ReviewView.swift */; };
 		F9BF4E0D2A90C7A8009D4624 /* FlexibleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9BF4E0C2A90C7A8009D4624 /* FlexibleView.swift */; };
@@ -82,6 +83,7 @@
 		87CF06862A90CC37008BF19B /* OrderCompleteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderCompleteView.swift; sourceTree = "<group>"; };
 		87CF06882A90E76A008BF19B /* QrCodeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QrCodeView.swift; sourceTree = "<group>"; };
 		87CF068A2A90FD87008BF19B /* NavigationUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationUtils.swift; sourceTree = "<group>"; };
+		87CF068D2A910903008BF19B /* ShakeEffect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShakeEffect.swift; sourceTree = "<group>"; };
 		F9BF4E042A90A3FD009D4624 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		F9BF4E0A2A90B8B9009D4624 /* ReviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewView.swift; sourceTree = "<group>"; };
 		F9BF4E0C2A90C7A8009D4624 /* FlexibleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlexibleView.swift; sourceTree = "<group>"; };
@@ -140,6 +142,7 @@
 				87CF06832A90C06D008BF19B /* Extension */,
 				876F90572A90568B00F4466E /* Models */,
 				876F90562A90568500F4466E /* Views */,
+				87CF068C2A9108EC008BF19B /* Animations */,
 				208033602A904ACC009298E0 /* Assets.xcassets */,
 				208033622A904ACC009298E0 /* Preview Content */,
 			);
@@ -228,6 +231,14 @@
 				87CF068A2A90FD87008BF19B /* NavigationUtils.swift */,
 			);
 			path = Extension;
+			sourceTree = "<group>";
+		};
+		87CF068C2A9108EC008BF19B /* Animations */ = {
+			isa = PBXGroup;
+			children = (
+				87CF068D2A910903008BF19B /* ShakeEffect.swift */,
+			);
+			path = Animations;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -366,6 +377,7 @@
 				208033962A90CC6D009298E0 /* RecipeVoteView.swift in Sources */,
 				876F90652A905E1B00F4466E /* Cook.swift in Sources */,
 				F9BF4E052A90A3FD009D4624 /* Colors.swift in Sources */,
+				87CF068E2A910903008BF19B /* ShakeEffect.swift in Sources */,
 				87CF06892A90E76A008BF19B /* QrCodeView.swift in Sources */,
 				2080338D2A90C101009298E0 /* HomeView.swift in Sources */,
 				876F90612A90578200F4466E /* Ingredient.swift in Sources */,

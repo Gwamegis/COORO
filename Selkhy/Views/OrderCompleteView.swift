@@ -11,6 +11,7 @@ struct OrderCompleteView: View {
     
     @Environment(\.dismiss) var dismiss
     @State private var isPresentQrCodeView = false
+    @State private var numberOfShakes: CGFloat = 0
     private let deviceWidth = UIScreen.main.bounds.width
     
     var body: some View {
@@ -44,6 +45,7 @@ struct OrderCompleteView: View {
                     .scaledToFill()
                     .frame(maxHeight: 270)
                     .padding(.leading, 100)
+                    .modifier(ShakeEffect(delta: numberOfShakes))
                 
                 Text("비밀 소스 만드는 중 ...")
                     .foregroundColor(.Point)
@@ -88,6 +90,16 @@ struct OrderCompleteView: View {
             if isPresentQrCodeView {
                 QrCodeView(isPresented: $isPresentQrCodeView)
             }
+        }
+        .onAppear {
+            withAnimation(.linear(duration: 10).repeatForever()) {
+                if numberOfShakes == 0 {
+                    numberOfShakes = 14
+                }else {
+                    numberOfShakes = 0
+                }
+            }
+            
         }
     }
 }
