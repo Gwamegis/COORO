@@ -7,7 +7,10 @@
 
 import SwiftUI
 
-struct Ingredient: Identifiable {
+struct Ingredient: Identifiable, Hashable {
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(self.name.hashValue)
+    }
     var id = UUID()
     var name: String
     var image: Image

@@ -9,7 +9,8 @@ import SwiftUI
 
 struct RegisterRecipeView: View {
     
-    @State var title: String = ""
+    @State private var name: String = ""
+    @State private var story: String = ""
     @State var menu: Menu
     
     var body: some View {
@@ -32,7 +33,7 @@ struct RegisterRecipeView: View {
                         .foregroundColor(.white)
                         .font(.system(size: 14, weight: .bold))
                     
-                    TextField("", text: $title,
+                    TextField("", text: $name,
                               prompt: Text("레시피 이름을 지어주세요.").foregroundColor(.LightGrey)
                     )
                     .font(.system(size: 14))
@@ -44,7 +45,7 @@ struct RegisterRecipeView: View {
                         .foregroundColor(.white)
                         .font(.system(size: 14, weight: .bold))
                     
-                    TextField("", text: $title,
+                    TextField("", text: $story,
                               prompt: Text("레시피 사연을 작성해주세요.").foregroundColor(.LightGrey)
                     )
                     .font(.system(size: 14))
@@ -77,7 +78,10 @@ struct RegisterRecipeView: View {
                 Spacer()
                 
                 Button {
-                    
+                    menu.name = name
+                    menu.story = story
+                    menu.recipe.ingredients = getIngredients()
+                    mockMenus.append(menu)
                 } label: {
                     Text("등록하기")
                         .foregroundColor(.white)
@@ -138,53 +142,16 @@ struct RegisterRecipeView: View {
                 )
         }
     }
-}
-
-
-struct RecipeTagView: View {
-    @State var cook: Cook
     
-    var ingredients: String = "치킨, 파"
-    var time: String = "1m 30s"
-    
-    var body: some View {
-        HStack(spacing: 8) {
-            Text(ingredients)
-                .padding(.vertical, 8)
-                .padding(.horizontal, 10)
-                .foregroundColor(.white)
-                .font(.system(size: 16, weight: .bold))
-                .background(
-                    RoundedRectangle(cornerRadius: 10)
-                        .foregroundColor(.Grey03)
-                )
-            
-            Text("재료를")
-                .foregroundColor(.LightGrey)
-            
-            Text(time)
-                .padding(.vertical, 8)
-                .padding(.horizontal, 10)
-                .foregroundColor(.white)
-                .font(.system(size: 16, weight: .bold))
-                .background(
-                    RoundedRectangle(cornerRadius: 10)
-                        .foregroundColor(.Grey03)
-                )
-            
-            Text("동안")
-                .foregroundColor(.LightGrey)
-            
-            Text(cook.action.actionTitle)
-                .padding(.vertical, 8)
-                .padding(.horizontal, 10)
-                .foregroundColor(.white)
-                .font(.system(size: 16, weight: .bold))
-                .background(
-                    RoundedRectangle(cornerRadius: 10)
-                        .foregroundColor(.Grey03)
-                )
+    private func getIngredients() -> [Ingredient] {
+        var ingredientSet: Set<Ingredient> = []
+        
+        for produce in menu.recipe.produce {
+            let set = produce.ingredients ?? []
+            ingredientSet = ingredientSet.union(set)
         }
+        
+        return Array(ingredientSet)
     }
 }
 
