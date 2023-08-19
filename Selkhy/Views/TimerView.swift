@@ -24,6 +24,29 @@ struct TimerView: View {
     var body: some View {
         VStack {
             ZStack {
+                HStack{
+                    Button {
+                    } label: {
+                        Image(systemName: "xmark")
+                            .font(.system(size: 20, weight: .bold))
+                            .foregroundColor(.clear)
+                    }
+                    Spacer()
+                    Text("시간 선택")
+                        .font(.system(size: 20, weight: .bold))
+                        .foregroundColor(.white)
+                        .frame(maxWidth: .infinity)
+                    Spacer()
+                    Button {
+                        isShowTimer.toggle()
+                    } label: {
+                        Image(systemName: "xmark")
+                            .font(.system(size: 20, weight: .bold))
+                            .foregroundColor(.white)
+                    }
+                }
+                .padding(.horizontal, 20)
+                
                 Image("Timer_back")
                     .resizable()
                     .scaledToFit()

@@ -37,6 +37,7 @@ struct HomeView: View {
                             }
                         }
                         .padding(.bottom, 30)
+                        .padding(.top, 17)
                         
                         HStack{
                             Image("Crown")
@@ -82,6 +83,7 @@ struct HomeView: View {
                     }
                     .padding(.horizontal, 20)
                 }
+                .scrollIndicators(.hidden)
             }
         }
         .navigationViewStyle(.stack)
