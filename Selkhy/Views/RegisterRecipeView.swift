@@ -12,6 +12,7 @@ struct RegisterRecipeView: View {
     @State private var name: String = ""
     @State private var story: String = ""
     @State var menu: Menu?
+    @State var isCompleted: Bool = false
     
     var body: some View {
         ScrollView {
@@ -84,6 +85,7 @@ struct RegisterRecipeView: View {
                         menu.name = name
                         menu.story = story
                         menu.recipe.ingredients = getIngredients()
+                        isCompleted.toggle()
                         mockMenus.append(menu)
                         NavigationUtil.popToRootView()
                     }

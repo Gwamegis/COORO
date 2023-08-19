@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct CompleteCreateRecipeView: View {
+struct CompleteRegisterRecipeView: View {
     @Environment(\.dismiss) var dismiss
     
     let name: String
@@ -60,11 +60,5 @@ struct CompleteCreateRecipeView: View {
                 }
             }
         }
-    }
-}
-
-struct CompleteCreateRecipeView_Previews: PreviewProvider {
-    static var previews: some View {
-        CompleteCreateRecipeView(name: "자취생 만랩 볶음밥")
     }
 }
