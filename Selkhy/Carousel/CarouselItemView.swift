@@ -9,8 +9,8 @@ import SwiftUI
 
 struct CarouselItemView: View {
     private let buttonTitle = ["재료", "조리", "시간"]
-    let index: Int = 1
-    let item: String
+    var index: Int
+    let item: Cook
     @Binding var isShowIngredientSelection: Bool
     @Binding var isShowCookActionSelection: Bool
     @Binding var isShowTimeSelection: Bool
@@ -21,7 +21,8 @@ struct CarouselItemView: View {
                 .foregroundColor(.white)
             
             VStack(spacing: 24) {
-                Text("STEP \(index + 1)")
+                Text("STEP \(index)")
+                    .font(Font.Cooro.CarouselFont)
                     .padding(.top, 30)
                 
                 HStack(spacing: 18) {
@@ -91,6 +92,7 @@ struct CarouselItemView: View {
 struct EmptyCarouselItemView: View {
     
     @State var phase: CGFloat = 0
+    var index: Int
     
     var body: some View {
         ZStack {
@@ -105,9 +107,10 @@ struct EmptyCarouselItemView: View {
                 .foregroundColor(.LightGrey)
             
             VStack {
-                Text("STEP 2")
+                Text("STEP \(index)")
                     .padding(.top, 30)
                     .foregroundColor(.LightGrey)
+                    .font(Font.Cooro.CarouselFont)
                 
                 Spacer()
                 Image(systemName: "plus")
@@ -122,9 +125,9 @@ struct EmptyCarouselItemView: View {
     }
 }
 
-struct CarouselItemView_Previews: PreviewProvider {
-    static var previews: some View {
-        CarouselItemView(item: "hello", isShowIngredientSelection: .constant(false), isShowCookActionSelection: .constant(false), isShowTimeSelection: .constant(false))
-//        EmptyCarouselItemView()
-    }
-}
+//struct CarouselItemView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        CarouselItemView(item: "hello", isShowIngredientSelection: .constant(false), isShowCookActionSelection: .constant(false), isShowTimeSelection: .constant(false))
+////        EmptyCarouselItemView()
+//    }
+//}
