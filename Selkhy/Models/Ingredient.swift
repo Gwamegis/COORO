@@ -7,7 +7,9 @@
 
 import SwiftUI
 
-struct Food {
+struct Ingredient: Identifiable {
+    var id = UUID().uuidString
     var name: String
-    var image: UIImage
+    var image: Image
+    var isHidden: Bool
 }
