@@ -29,6 +29,7 @@
 		876F90672A90A1D800F4466E /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 876F90662A90A1D800F4466E /* Launch Screen.storyboard */; };
 		87CF06852A90C07D008BF19B /* Int+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87CF06842A90C07D008BF19B /* Int+Extension.swift */; };
 		87CF06872A90CC37008BF19B /* OrderCompleteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87CF06862A90CC37008BF19B /* OrderCompleteView.swift */; };
+		87CF06892A90E76A008BF19B /* QrCodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87CF06882A90E76A008BF19B /* QrCodeView.swift */; };
 		F9BF4E052A90A3FD009D4624 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9BF4E042A90A3FD009D4624 /* Colors.swift */; };
 		F9BF4E0B2A90B8B9009D4624 /* ReviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9BF4E0A2A90B8B9009D4624 /* ReviewView.swift */; };
 /* End PBXBuildFile section */
@@ -76,6 +77,7 @@
 		876F90662A90A1D800F4466E /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		87CF06842A90C07D008BF19B /* Int+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int+Extension.swift"; sourceTree = "<group>"; };
 		87CF06862A90CC37008BF19B /* OrderCompleteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderCompleteView.swift; sourceTree = "<group>"; };
+		87CF06882A90E76A008BF19B /* QrCodeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QrCodeView.swift; sourceTree = "<group>"; };
 		F9BF4E042A90A3FD009D4624 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		F9BF4E0A2A90B8B9009D4624 /* ReviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -191,6 +193,7 @@
 				F9BF4E0A2A90B8B9009D4624 /* ReviewView.swift */,
 				876F905A2A9056E900F4466E /* OrderView.swift */,
 				87CF06862A90CC37008BF19B /* OrderCompleteView.swift */,
+				87CF06882A90E76A008BF19B /* QrCodeView.swift */,
 				876F90662A90A1D800F4466E /* Launch Screen.storyboard */,
 			);
 			path = Views;
@@ -353,6 +356,7 @@
 				208033962A90CC6D009298E0 /* RecipeVoteView.swift in Sources */,
 				876F90652A905E1B00F4466E /* Cook.swift in Sources */,
 				F9BF4E052A90A3FD009D4624 /* Colors.swift in Sources */,
+				87CF06892A90E76A008BF19B /* QrCodeView.swift in Sources */,
 				2080338D2A90C101009298E0 /* HomeView.swift in Sources */,
 				876F90612A90578200F4466E /* Ingredient.swift in Sources */,
 				876F90632A9058E100F4466E /* Review.swift in Sources */,
