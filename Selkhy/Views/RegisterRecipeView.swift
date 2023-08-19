@@ -11,7 +11,7 @@ struct RegisterRecipeView: View {
     
     @State private var name: String = ""
     @State private var story: String = ""
-    @State var menu: Menu
+    @State var menu: Menu?
     
     var body: some View {
         ScrollView {
@@ -57,16 +57,17 @@ struct RegisterRecipeView: View {
                         .font(.system(size: 14, weight: .bold))
                     
                     VStack(alignment: .leading) {
-                        
-                        ForEach(Array(menu.recipe.produce.enumerated()), id: \.offset) { index, cook in
-                            HStack(spacing: 0) {
-                                Text("\(index + 1). ")
-                                    .foregroundColor(.white)
-                                    .font(.system(size: 20, weight: .bold))
-                                    .padding(.leading, 10)
-                                getRecipeView(with: cook)
+                        if let menu {
+                            ForEach(Array(menu.recipe.produce.enumerated()), id: \.offset) { index, cook in
+                                HStack(spacing: 0) {
+                                    Text("\(index + 1). ")
+                                        .foregroundColor(.white)
+                                        .font(.system(size: 20, weight: .bold))
+                                        .padding(.leading, 10)
+                                    getRecipeView(with: cook)
+                                }
+                                .frame(width: UIScreen.main.bounds.size.width - 60, alignment: .leading)
                             }
-                            .frame(width: UIScreen.main.bounds.size.width - 60, alignment: .leading)
                         }
                     }
                     .padding(EdgeInsets(top: 20, leading: 10, bottom: 20, trailing: 10))
@@ -79,11 +80,13 @@ struct RegisterRecipeView: View {
                 Spacer()
                 
                 Button {
-                    menu.name = name
-                    menu.story = story
-                    menu.recipe.ingredients = getIngredients()
-                    mockMenus.append(menu)
-                    NavigationUtil.popToRootView()
+                    if var menu {
+                        menu.name = name
+                        menu.story = story
+                        menu.recipe.ingredients = getIngredients()
+                        mockMenus.append(menu)
+                        NavigationUtil.popToRootView()
+                    }
                 } label: {
                     Text("등록하기")
                         .foregroundColor(.white)
@@ -153,6 +156,7 @@ struct RegisterRecipeView: View {
     private func getIngredients() -> [Ingredient] {
         var ingredientSet: Set<Ingredient> = []
         
+        guard let menu else { return [] }
         for produce in menu.recipe.produce {
             let set = produce.ingredients ?? []
             ingredientSet = ingredientSet.union(set)

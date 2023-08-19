@@ -84,8 +84,8 @@ struct CreateRecipeView: View {
             
             Spacer()
             
-            Button {
-                
+            NavigationLink {
+                RegisterRecipeView(menu: menu)
             } label: {
                 Text("완료")
                     .font(.system(size: 18, weight: .bold))
