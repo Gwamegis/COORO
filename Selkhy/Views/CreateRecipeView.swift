@@ -48,7 +48,7 @@ struct CreateRecipeView: View {
                     .frame(width: 300, height: 240)
                 ZStack {
                     ForEach(selectedIngredientsEnglishNames, id: \.self) { imageName in
-                        ForEach(0..<5, id: \.self) { num in
+                        ForEach(1 ..< 8, id: \.self) { num in
                             AnimatedImage(id: num, imageName: imageName)
                         }
                     }
@@ -73,7 +73,7 @@ struct CreateRecipeView: View {
                                  isShowTimeSelection: $isShowTimeSelection
                 )
                 .fullScreenCover(isPresented: $isShowIngredientSelection) {
-                        IngredientSelectionView(isShowIngredientSelection: $isShowIngredientSelection, menu: $menu, currentIndex: $currentIndex, selectedEnglishNames: $selectedIngredientsEnglishNames)
+                        IngredientSelectionView(isShowIngredientSelection: $isShowIngredientSelection, menu: $menu, currentIndex: $currentIndex, selectedEnglishNames: $selectedIngredientsEnglishNames, cook: $items[currentIndex])
                     }
                 .fullScreenCover(isPresented: $isShowCookActionSelection) {
                     SelectedCookActionView(isShowCookActionSelection: $isShowCookActionSelection, cook: $items[currentIndex])
