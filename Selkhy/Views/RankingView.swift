@@ -17,48 +17,67 @@ struct RankingView: View {
         ]
 
         var body: some View {
-            VStack(alignment: .leading) {
-                Image("AppLogo")
-                    .resizable()
-                    .scaledToFit()
-                    .frame(width: 100)
-                
-                HStack{
-                    Image("Crown")
-                        .resizable()
-                        .scaledToFit()
-                        .frame(width: 20)
-                    Text("8월 3째주 쿠로 랭킹")
-                    Spacer()
-                }
-                ZStack{
-                    Color.red
-                    VStack{
-                    Image(uiImage: recipes[0].ingredients[0].image)
-                        .resizable()
-                        .scaledToFit()
-                        .frame(width: 300)
-                        VStack{
-                            HStack{
-                                Text(recipes[0].ingredients[0].name)
-                                Text("\(recipes[0].price, specifier: "%.0f")원")
+            ZStack{
+                Color("Background")
+                    .ignoresSafeArea()
+                VStack(alignment: .leading) {
+                    HStack{
+                        Image("AppLogo")
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: 100)
+                            .padding(.bottom, 30)
+                        
+                        
+                    }
+                    
+                    HStack{
+                        Image("Crown")
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: 20)
+                        Text("이번주 요리")
+                            .font(.system(size: 20, weight: .bold))
+                            .foregroundColor(Color("LightGrey"))
+                    }
+                    
+                    ScrollView(.horizontal, showsIndicators: false) {
+                        HStack {  // HStack을 사용하여 요소들이 수평 방향으로 배열되도록 합니다.
+                            ForEach(recipes.indices, id: \.self) { index in
+                                ZStack {
+                                    Color.red
+                                    VStack {
+                                        Image(uiImage: recipes[index].ingredients[0].image)
+                                            .resizable()
+                                            .frame(width: 280, height: 200)
+                                        VStack {
+                                            HStack {
+                                                Text(recipes[index].ingredients[0].name)
+                                                Text("\(recipes[index].price, specifier: "%.0f")원")
+                                            }
+                                            Text("설명 솰라솰라")
+                                        }
+                                    }
+                                }
+                                .frame(width: 320, height: 320)
+                                .cornerRadius(10)
                             }
-                            Text("설명 솰라솰라")
                         }
                     }
-                }
-                .cornerRadius(30)
-                
-                Text("이번주 랭킹")
-                List {
-                    ForEach(1 ..< recipes.count) { index in
-                        RankingCell(rank: index + 1, recipe: recipes[index])
-                            .listRowInsets(EdgeInsets())
+                    
+                    
+                    Text("이번주 랭킹")
+                    List {
+                        ForEach(1 ..< recipes.count) { index in
+                            RankingCell(rank: index + 1, recipe: recipes[index])
+                                .listRowInsets(EdgeInsets())
+                        }
+                        .listRowBackground(Color("Background"))
                     }
+                    .listStyle(.plain)
                 }
-                .listStyle(.plain)
+                .padding(.horizontal, 20)
             }
-            .padding(.horizontal, 20)
         }
 }
 
