@@ -152,15 +152,17 @@ struct RegisterRecipeView: View {
                 .foregroundColor(.LightGrey)
                 .font(.system(size: 14))
             
-            Text(cook.action.actionTitle)
-                .padding(.vertical, 8)
-                .padding(.horizontal, 10)
-                .foregroundColor(.white)
-                .font(.system(size: 14, weight: .bold))
-                .background(
-                    RoundedRectangle(cornerRadius: 10)
-                        .foregroundColor(.Grey03)
-                )
+            if let actionTitel = cook.action?.actionTitle {
+                Text(actionTitel)
+                    .padding(.vertical, 8)
+                    .padding(.horizontal, 10)
+                    .foregroundColor(.white)
+                    .font(.system(size: 14, weight: .bold))
+                    .background(
+                        RoundedRectangle(cornerRadius: 10)
+                            .foregroundColor(.Grey03)
+                    )
+            }
         }
     }
     

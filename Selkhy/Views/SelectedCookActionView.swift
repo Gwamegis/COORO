@@ -10,6 +10,7 @@ import SwiftUI
 struct SelectedCookActionView: View {
     
     @Binding var isShowCookActionSelection: Bool
+    @Binding var cook: Cook
     private let cookActions: [CookAction] = [.roast, .boil, .fry, .steam]
     
     var body: some View {
@@ -37,7 +38,7 @@ struct SelectedCookActionView: View {
             
             ForEach(cookActions.indices, id: \.self) { index in
                 Button {
-                    // TODO: 값 Binding
+                    cook.action = cookActions[index]
                     isShowCookActionSelection.toggle()
                 } label: {
                     cookActions[index].getImage()
@@ -53,8 +54,8 @@ struct SelectedCookActionView: View {
     }
 }
 
-struct SelectedCookActionView_Previews: PreviewProvider {
-    static var previews: some View {
-        SelectedCookActionView(isShowCookActionSelection: .constant(true))
-    }
-}
+//struct SelectedCookActionView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        SelectedCookActionView(isShowCookActionSelection: .constant(true), selectedAction: .constant(.boil))
+//    }
+//}

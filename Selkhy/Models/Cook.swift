@@ -13,6 +13,19 @@ enum CookAction {
     case roast
     case steam
     
+    func getThumbnailImageFimeName() -> String {
+        switch self {
+        case .fry:
+            return "Fri"
+        case .boil:
+            return "Boil"
+        case .roast:
+            return "Roast"
+        case .steam:
+            return "Steam"
+        }
+    }
+    
     func getImage() -> Image {
         switch self {
         case .fry:
@@ -43,6 +56,6 @@ enum CookAction {
 struct Cook: Identifiable {
     var id = UUID()
     var ingredients: [Ingredient]?
-    var action: CookAction
-    var time: String
+    var action: CookAction?
+    var time: String?
 }
