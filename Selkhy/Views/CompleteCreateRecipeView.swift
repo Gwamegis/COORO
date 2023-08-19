@@ -8,7 +8,10 @@
 import SwiftUI
 
 struct CompleteCreateRecipeView: View {
-    let name = "자취생 만렙 볶음밥"
+    @Environment(\.dismiss) var dismiss
+    
+    let name: String
+    
     @State private var isAnimating = false
     var body: some View {
         ZStack(alignment: .top) {
@@ -48,8 +51,13 @@ struct CompleteCreateRecipeView: View {
                     .font(.system(size: 20, weight: .bold ))
             }
             ToolbarItem(placement: .navigationBarTrailing) {
-                Image(systemName: "xmark")
-                    .font(.system(size: 20, weight: .bold ))
+                Button {
+                    NavigationUtil.popToRootView()
+                    dismiss()
+                } label: {
+                    Image(systemName: "xmark")
+                        .font(.system(size: 20, weight: .bold ))
+                }
             }
         }
     }
@@ -57,6 +65,6 @@ struct CompleteCreateRecipeView: View {
 
 struct CompleteCreateRecipeView_Previews: PreviewProvider {
     static var previews: some View {
-        CompleteCreateRecipeView()
+        CompleteCreateRecipeView(name: "자취생 만랩 볶음밥")
     }
 }
