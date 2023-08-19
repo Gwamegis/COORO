@@ -16,8 +16,12 @@ let mockMenus: [Menu] = [
         story: "전남친만의 비밀 재료가 들어간 샌드위치!\n이것 대문에 다시 연락했어요.",
         recipe: Recipe(
             ingredients: [
-                Ingredient(name: "토마토", image: Image("Sandwich"), isHidden: true),
                 Ingredient(name: "토마토", image: Image("Sandwich"), isHidden: false),
+                Ingredient(name: "크림치즈", image: Image("Sandwich"), isHidden: true),
+                Ingredient(name: "블루베리잼", image: Image("Sandwich"), isHidden: true),
+                Ingredient(name: "머스타드", image: Image("Sandwich"), isHidden: false),
+                Ingredient(name: "햄", image: Image("Sandwich"), isHidden: false),
+                Ingredient(name: "슬라이스 치즈", image: Image("Sandwich"), isHidden: false),
                 Ingredient(name: "토마토", image: Image("Sandwich"), isHidden: false),
             ],
             amount: [3,6,2],

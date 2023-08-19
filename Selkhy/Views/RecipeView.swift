@@ -40,7 +40,7 @@ struct RecipeView: View {
                 VStack(spacing: 20) {
                     Text(menu.name)
                         .font(.system(size: 20, weight: .bold))
-                    Text("\(numberFormatter(number:menu.recipe.price))원")
+                    Text("\(numberFormatter(number:Int(menu.recipe.price)))원")
                         .font(.system(size: 20, weight: .bold))
                         .foregroundColor(.Point)
                     Text(menu.story)
@@ -48,9 +48,7 @@ struct RecipeView: View {
                         .multilineTextAlignment(.center)
                         .foregroundColor(.LightGrey)
                     HStack {
-                        ForEach (menu.recipe.ingredients) { ingredient in
-                            TagView(isHidden: ingredient.isHidden, text: ingredient.name)
-                        }
+                        FlexibleView(data: menu.recipe.ingredients)
                     }
                 }
                 .foregroundColor(.white)
@@ -76,7 +74,7 @@ struct RecipeView: View {
                         .frame(maxWidth: .infinity, alignment: .center)
                         .padding(.top, 10)
                     }
-
+                    
                 }
                 .padding(.horizontal, 20)
                 .padding(.bottom, 40)
@@ -94,6 +92,7 @@ struct RecipeView: View {
             }
         }
         .background(Color.Background)
+        .scrollIndicators(.hidden)
     }
     
     private func numberFormatter(number: Int) -> String {
@@ -107,12 +106,14 @@ struct RecipeView: View {
 struct TagView: View {
     var isHidden: Bool
     let text: String
+    @State var width: CGFloat = 0
+    
     var body: some View {
         HStack {
             if isHidden {
                 Image("judy")
             }
-            Text(text)
+            Text(isHidden ? "히든 재료" : text)
                 .font(.system(size: 16, weight: .bold))
                 .lineLimit(1)
         }

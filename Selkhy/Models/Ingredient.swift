@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct Ingredient: Identifiable {
-    var id = UUID().uuidString
+    var id = UUID()
     var name: String
     var image: Image
     var isHidden: Bool
