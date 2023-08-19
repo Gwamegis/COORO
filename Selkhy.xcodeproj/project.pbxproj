@@ -163,7 +163,6 @@
 			isa = PBXGroup;
 			children = (
 				F9495A4D2A9113F600876166 /* Info.plist */,
-				208033912A90C663009298E0 /* MenuCell.swift */,
 				2080335C2A904ACA009298E0 /* SelkhyApp.swift */,
 				87CF06832A90C06D008BF19B /* Extension */,
 				876F90572A90568B00F4466E /* Models */,
@@ -204,6 +203,7 @@
 		2080338E2A90C123009298E0 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				208033912A90C663009298E0 /* MenuCell.swift */,
 				2080338C2A90C101009298E0 /* HomeView.swift */,
 				208033932A90C6C5009298E0 /* RankingCell.swift */,
 			);

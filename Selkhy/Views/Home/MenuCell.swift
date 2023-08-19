@@ -18,6 +18,16 @@ struct MenuCell: View {
                     .resizable()
                     .frame(width: 280, height: 200)
                 VStack(alignment: .leading) {
+                    HStack{
+                        Image("Avatar")
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: 20)
+                        Text(menu.creater)
+                            .font(.system(size: 14))
+                            .foregroundColor(Color.LightGrey)
+                    }
+                    
                     HStack {
                         Text(menu.name)
                             .font(.system(size: 18, weight: .bold))
@@ -29,12 +39,14 @@ struct MenuCell: View {
                             .font(.system(size: 18, weight: .bold))
                             .foregroundColor(Color("Point"))
                     }
-                    .padding(.bottom, 16)
+                    .padding(.bottom, 5)
+                    
                     Text(menu.story)
+                        .multilineTextAlignment(.leading)
                         .font(.system(size: 12))
                         .foregroundColor(.white)
                 }
-                .padding(.horizontal, 20)
+                .padding(.horizontal)
             }
         }
         .frame(width: 320, height: 320)

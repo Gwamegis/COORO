@@ -50,7 +50,7 @@ struct HomeView: View {
                         
                         ScrollView(.horizontal, showsIndicators: false) {
                             HStack {
-                                ForEach($menuStore.mockMenus.indices, id: \.self) { index in
+                                ForEach(Array(menuStore.mockMenus.prefix(5)).indices, id: \.self) { index in
                                     NavigationLink {
                                         RecipeView(menu: menuStore.mockMenus[index])
                                     } label: {
@@ -71,9 +71,10 @@ struct HomeView: View {
                                 .foregroundColor(Color("LightGrey"))
                         }
                         VStack(alignment: .leading, spacing: 15) {
-                            ForEach($menuStore.mockMenus.indices, id: \.self) { index in
-                                NavigationLink(destination: RecipeVoteView(menu: menuStore.mockMenus[index])) {
-                                    RankingCell(rank: index + 1, menu: menuStore.mockMenus[index])
+                            ForEach(Array(menuStore.mockMenus.dropFirst(5)).indices, id: \.self) { index in
+                                let adjustedIndex = index + 5
+                                NavigationLink(destination: RecipeVoteView(menu: menuStore.mockMenus[adjustedIndex])) {
+                                    RankingCell(rank: adjustedIndex + 1, menu: menuStore.mockMenus[adjustedIndex])
                                 }
                             }
                         }
@@ -85,14 +86,12 @@ struct HomeView: View {
             }
         }
         .navigationViewStyle(.stack)
-        .onAppear {
-            print("asdfasdfasdfasdfasdf")
-        }
     }
 }
 
 struct HomeView_Previews: PreviewProvider {
     static var previews: some View {
         HomeView()
+            .environmentObject(MenuStore())
     }
 }
