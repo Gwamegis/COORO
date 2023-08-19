@@ -65,11 +65,11 @@ struct RecipeView: View {
                     Text("쿠로에게 주문 요청하기")
                         .font(.system(size: 18, weight: .bold))
                         .foregroundColor(.white)
+                        .frame(maxWidth: .infinity)
+                        .padding(.vertical, 19)
+                        .background(Color.Point)
+                        .cornerRadius(10)
                 }
-                .frame(maxWidth: .infinity)
-                .padding(.vertical, 19)
-                .background(Color.Point)
-                .cornerRadius(10)
                 .padding(.horizontal, 20)
                 .padding(.bottom, 44)
             }

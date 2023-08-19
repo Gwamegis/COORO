@@ -24,6 +24,7 @@ struct OrderCompleteView: View {
                     HStack {
                         Spacer()
                         Button {
+                            NavigationUtil.popToRootView()
                             dismiss()
                         } label: {
                             Image(systemName: "xmark")
@@ -34,6 +35,7 @@ struct OrderCompleteView: View {
                     }
                 }
                 .frame(width: deviceWidth)
+                .padding(.top, 20)
                 
                 Spacer()
                 
