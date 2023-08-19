@@ -100,3 +100,13 @@ let mockMenus: [Menu] = [
         image: Image("Meet"))
     
 ]
+
+//
+//[[
+//    Selkhy.Ingredient(id: 5A606BE6-AFB7-4D1A-A1F6-0B59ADBA7A2E, name: "토마토", image: SwiftUI.Image(provider: SwiftUI.ImageProviderBox<SwiftUI.Image.NamedImageProvider>), isHidden: false),
+//  Selkhy.Ingredient(id: ED99252F-A98D-4F18-A7C8-8466EA01D3D7, name: "크림치즈", image: SwiftUI.Image(provider: SwiftUI.ImageProviderBox<SwiftUI.Image.NamedImageProvider>), isHidden: true),
+//  Selkhy.Ingredient(id: 8F70C87C-3CED-48A5-84E5-695A9CDCAF46, name: "블루베리잼", image: SwiftUI.Image(provider: SwiftUI.ImageProviderBox<SwiftUI.Image.NamedImageProvider>), isHidden: true)
+//],
+// 
+// [
+//    Selkhy.Ingredient(id: EF6A35B4-12A3-4455-9E1F-72A652BC64BF, name: "머스타드", image: SwiftUI.Image(provider: SwiftUI.ImageProviderBox<SwiftUI.Image.NamedImageProvider>), isHidden: false), Selkhy.Ingredient(id: 0412F60F-EA59-4A61-8928-D8A29527B962, name: "햄", image: SwiftUI.Image(provider: SwiftUI.ImageProviderBox<SwiftUI.Image.NamedImageProvider>), isHidden: false), Selkhy.Ingredient(id: 021406A9-9B59-4BA2-86CE-2D25A9C00774, name: "슬라이스 치즈", image: SwiftUI.Image(provider: SwiftUI.ImageProviderBox<SwiftUI.Image.NamedImageProvider>), isHidden: false), Selkhy.Ingredient(id: 77609BBB-5AB0-40F4-9E11-9FCD41D50187, name: "토마토", image: SwiftUI.Image(provider: SwiftUI.ImageProviderBox<SwiftUI.Image.NamedImageProvider>), isHidden: false)]]

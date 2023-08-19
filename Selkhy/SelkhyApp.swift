@@ -11,7 +11,8 @@ import SwiftUI
 struct SelkhyApp: App {
     var body: some Scene {
         WindowGroup {
-            HomeView()
+//            HomeView()
+            OrderView(menu: mockMenus[0])
         }
     }
 }
