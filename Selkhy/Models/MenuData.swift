@@ -22,7 +22,7 @@ let mockMenus: [Menu] = [
             ],
             amount: [3,6,2],
             price: 3500 ),
-        review: Review(score: 10, photo: Image("sandwich") , content: ""),
+        review: [Review(score: 10, photo: Image("sandwich") , content: "")],
         image: Image("Sandwich")),
     
     Menu(
@@ -37,7 +37,7 @@ let mockMenus: [Menu] = [
             ],
             amount: [3,6,2],
             price: 12000 ),
-        review: Review(score: 10, photo: Image("sandwich") , content: ""),
+        review: [Review(score: 10, photo: Image("sandwich") , content: "")],
         image: Image("Noodle")),
     
     Menu(
@@ -52,7 +52,7 @@ let mockMenus: [Menu] = [
             ],
             amount: [3,6,2],
             price: 7000 ),
-        review: Review(score: 10, photo: Image("sandwich") , content: ""),
+        review: [Review(score: 10, photo: Image("sandwich") , content: "")],
         image: Image("Skewer")),
     
     Menu(
@@ -67,7 +67,7 @@ let mockMenus: [Menu] = [
             ],
             amount: [3,6,2],
             price: 5000 ),
-        review: Review(score: 10, photo: Image("sandwich") , content: ""),
+        review: [Review(score: 10, photo: Image("sandwich") , content: "")],
         image: Image("Kimbob")),
     
     Menu(
@@ -82,7 +82,7 @@ let mockMenus: [Menu] = [
             ],
             amount: [3,6,2],
             price: 9000 ),
-        review: Review(score: 10, photo: Image("sandwich") , content: ""),
+        review: [Review(score: 10, photo: Image("sandwich") , content: "")],
         image: Image("Meet"))
     
 ]
