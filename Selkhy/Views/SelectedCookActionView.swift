@@ -8,8 +8,8 @@
 import SwiftUI
 
 struct SelectedCookActionView: View {
-    @Environment(\.dismiss) var dismiss
     
+    @Binding var isShowCookActionSelection: Bool
     private let cookActions: [CookAction] = [.roast, .boil, .fry, .steam]
     
     var body: some View {
@@ -23,7 +23,7 @@ struct SelectedCookActionView: View {
                 HStack {
                     Spacer()
                     Button {
-                        dismiss()
+                        isShowCookActionSelection.toggle()
                     } label: {
                         Image(systemName: "xmark")
                             .foregroundColor(.white)
@@ -37,7 +37,8 @@ struct SelectedCookActionView: View {
             
             ForEach(cookActions.indices, id: \.self) { index in
                 Button {
-                    
+                    // TODO: 값 Binding
+                    isShowCookActionSelection.toggle()
                 } label: {
                     cookActions[index].getImage()
                         .resizable()
@@ -54,6 +55,6 @@ struct SelectedCookActionView: View {
 
 struct SelectedCookActionView_Previews: PreviewProvider {
     static var previews: some View {
-        SelectedCookActionView()
+        SelectedCookActionView(isShowCookActionSelection: .constant(true))
     }
 }
