@@ -12,6 +12,6 @@ struct Recipe {
     var ingredients: [Food]
     var amount: [Int]
     var price: Double
-    var produce: [Cook]
+    // var produce: [Cook]
 }
 
