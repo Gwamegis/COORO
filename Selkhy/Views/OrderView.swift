@@ -185,6 +185,8 @@ struct OrderView_Previews: PreviewProvider {
         OrderView(menu: Menu(
             name: "전남친 샌드위치",
             numberOfOrder: 10,
+            creater: "스윗쿡남",
+            likes: 300,
             story: "전남친만의 비밀 재료가 들어간 샌드위치!\n이것 대문에 다시 연락했어요.",
             recipe: Recipe(
                 ingredients: [
