@@ -9,7 +9,7 @@ import SwiftUI
 
 struct CreateRecipeView: View {
     
-    @State var items = [ "title1", "title2", "title3", "title4" ]
+    @State var items: [Cook] = [Cook(action: .boil, time: ""), Cook(action: .boil, time: "")]
     @State var currentIndex = 0
     @State var isShowIngredientSelection: Bool = false
     @State var menu: Menu?
@@ -65,7 +65,8 @@ struct CreateRecipeView: View {
                      itemHeight: itemHeight,
                      opacity: 0,
                      sizeScale: 0.1) { item in
-                CarouselItemView(item: item,
+                CarouselItemView(index: currentIndex + 1,
+                                 item: item,
                                  isShowIngredientSelection: $isShowIngredientSelection,
                                  isShowCookActionSelection: $isShowCookActionSelection,
                                  isShowTimeSelection: $isShowTimeSelection

@@ -51,7 +51,7 @@ struct Carousel<Item, ItemView: View> : View {
                                     .frame(width: itemWidth, height: itemHeight)
                                     .id(index)
                             } else {
-                                EmptyCarouselItemView()
+                                EmptyCarouselItemView(index: items.count)
                                     .onTapGesture {
                                         withAnimation {
                                             guard let last = items.last else { return }
