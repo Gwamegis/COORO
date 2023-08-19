@@ -6,6 +6,8 @@
 //
 
 import SwiftUI
+import AVFoundation
+
 
 struct CreateRecipeView: View {
     
@@ -16,12 +18,13 @@ struct CreateRecipeView: View {
     @State var selectedIngredientsEnglishNames: [String] = []
     @State var isShowCookActionSelection: Bool = false
     @State var isShowTimeSelection: Bool = false
-    @State var selectedAction: CookAction? = nil
     @State private var isAnimating = true
     
     let spacing: CGFloat  = 10
     let itemWidth: CGFloat = 290
     let itemHeight: CGFloat = 208
+    
+    @State var player = AVPlayer(url: Bundle.main.url(forResource: "yourAudioFile", withExtension: "mp3")!)
     
     init() {
             _menu = State(initialValue: Menu(
@@ -59,7 +62,7 @@ struct CreateRecipeView: View {
                     .scaledToFit()
                     .frame(width: 300, height: 240)
                 
-                if selectedAction != nil {
+                if items[currentIndex].action != nil {
                     Image("Fire")
                         .resizable()
                         .scaledToFit()
@@ -67,6 +70,11 @@ struct CreateRecipeView: View {
                         .padding(.bottom, -15)
                         .offset(y: isAnimating ? -5 : 5)
                         .animation(Animation.easeInOut(duration: 1.0).repeatForever(autoreverses: true))
+                        .onAppear {
+                            withAnimation(Animation.easeInOut(duration: 1.0).repeatForever(autoreverses: true)) {
+                                isAnimating = true
+                            }
+                        }
                 }
             }
             .padding(.bottom, -50)
@@ -150,7 +158,7 @@ struct AnimatedImage: View {
             .offset(x: randomX, y: offset)
             .onAppear() {
                 withAnimation(Animation.easeIn(duration: randomDuration)) {
-                    offset = 0
+                    offset = -30
                     rotation = 360.0
                 }
             }
