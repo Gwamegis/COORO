@@ -9,7 +9,7 @@ import Foundation
 
 import SwiftUI
 
-let mockMenus: [Menu] = [
+var mockMenus: [Menu] = [
     Menu(
         name: "전남친 샌드위치",
         numberOfOrder: 10,

@@ -76,7 +76,7 @@ struct IngredientSelectionView: View {
             return englishName != nil ? englishName! + "2" : nil
         }
         
-        let newProduce = Cook(ingredients: allSelectedIngredients, action: .fry)
+        let newProduce = Cook(ingredients: allSelectedIngredients, action: .fry, time: "7m 30s")
 
         if currentIndex >= 0 && currentIndex < menu?.recipe.produce.count ?? 0 {
             menu?.recipe.produce[currentIndex] = newProduce
