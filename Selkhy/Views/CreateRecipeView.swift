@@ -102,7 +102,8 @@ struct CreateRecipeView: View {
             }
         }
         .background(Color.Background)
-        .navigationBarBackButtonHidden()
+        .navigationBarBackButtonHidden(true)
+        .navigationBarItems(leading: BackButton())
         .navigationTitle("레시피 등록")
     }
 }
