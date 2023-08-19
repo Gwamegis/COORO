@@ -20,8 +20,7 @@ struct RecipeView: View {
                 Ingredient(name: "토마토", image: Image("Sandwich"), isHidden: false),
             ],
             amount: [3,6,2],
-            price: 3500,
-            produce: [Cook(action: CookAction.fry)]),
+            price: 3500 ),
         review: Review(score: 10, photo: Image("sandwich") , content: ""),
         image: Image("Sandwich"))
     
