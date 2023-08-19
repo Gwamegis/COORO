@@ -24,6 +24,7 @@
 		876F90632A9058E100F4466E /* Review.swift in Sources */ = {isa = PBXBuildFile; fileRef = 876F90622A9058E100F4466E /* Review.swift */; };
 		876F90652A905E1B00F4466E /* Cook.swift in Sources */ = {isa = PBXBuildFile; fileRef = 876F90642A905E1B00F4466E /* Cook.swift */; };
 		876F90672A90A1D800F4466E /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 876F90662A90A1D800F4466E /* Launch Screen.storyboard */; };
+		87CF06852A90C07D008BF19B /* Int+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87CF06842A90C07D008BF19B /* Int+Extension.swift */; };
 		F9BF4E052A90A3FD009D4624 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9BF4E042A90A3FD009D4624 /* Colors.swift */; };
 /* End PBXBuildFile section */
 
@@ -65,6 +66,7 @@
 		876F90622A9058E100F4466E /* Review.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Review.swift; sourceTree = "<group>"; };
 		876F90642A905E1B00F4466E /* Cook.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cook.swift; sourceTree = "<group>"; };
 		876F90662A90A1D800F4466E /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
+		87CF06842A90C07D008BF19B /* Int+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int+Extension.swift"; sourceTree = "<group>"; };
 		F9BF4E042A90A3FD009D4624 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -117,6 +119,7 @@
 			isa = PBXGroup;
 			children = (
 				2080335C2A904ACA009298E0 /* SelkhyApp.swift */,
+				87CF06832A90C06D008BF19B /* Extension */,
 				876F90572A90568B00F4466E /* Models */,
 				876F90562A90568500F4466E /* Views */,
 				208033602A904ACC009298E0 /* Assets.xcassets */,
@@ -174,6 +177,14 @@
 				208033882A90B667009298E0 /* MenuData.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		87CF06832A90C06D008BF19B /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				87CF06842A90C07D008BF19B /* Int+Extension.swift */,
+			);
+			path = Extension;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -315,6 +326,7 @@
 				876F90592A9056DB00F4466E /* RecipeView.swift in Sources */,
 				876F905B2A9056E900F4466E /* OrderView.swift in Sources */,
 				2080335F2A904ACA009298E0 /* ContentView.swift in Sources */,
+				87CF06852A90C07D008BF19B /* Int+Extension.swift in Sources */,
 				876F905F2A90570E00F4466E /* Recipe.swift in Sources */,
 				208033872A907A03009298E0 /* RankingView.swift in Sources */,
 				2080335D2A904ACA009298E0 /* SelkhyApp.swift in Sources */,

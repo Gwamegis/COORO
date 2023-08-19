@@ -33,7 +33,7 @@ struct RecipeView: View {
             VStack(spacing: 20) {
                 Text(menu.name)
                     .font(.system(size: 20, weight: .bold))
-                Text("\(numberFormatter(number:menu.recipe.price))원")
+                Text(menu.recipe.price.numberFormatter())
                     .font(.system(size: 20, weight: .bold))
                     .foregroundColor(.Point)
                 Text(menu.story)
@@ -63,13 +63,6 @@ struct RecipeView: View {
         }
         .frame(maxHeight: .infinity)
         .background(Color.black)
-    }
-    
-    private func numberFormatter(number: Double) -> String {
-        let numberFormatter = NumberFormatter()
-        numberFormatter.numberStyle = .decimal
-        
-        return numberFormatter.string(from: NSNumber(value: number))!
     }
 }
 
