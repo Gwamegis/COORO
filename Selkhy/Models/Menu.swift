@@ -5,7 +5,7 @@
 //  Created by 이지원 on 2023/08/19.
 //
 
-import Foundation
+import SwiftUI
 
 struct Menu {
     var name: String
@@ -13,4 +13,5 @@ struct Menu {
     var story: String
     var recipe: Recipe
     var review: Review
+    var image: Image
 }

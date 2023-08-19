@@ -9,5 +9,5 @@ import SwiftUI
 
 struct Food {
     var name: String
-    var image: UIImage
+    var image: Image
 }
