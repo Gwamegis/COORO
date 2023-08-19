@@ -30,4 +30,5 @@ enum CookAction {
 struct Cook {
     var ingredients: [Ingredient]?
     var action: CookAction
+    var time: String
 }

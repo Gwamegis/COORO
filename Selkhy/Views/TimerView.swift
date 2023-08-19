@@ -24,7 +24,7 @@ struct TimerView: View {
     var body: some View {
         VStack {
             ZStack {
-                Image("timer_back")
+                Image("Timer_back")
                     .resizable()
                     .scaledToFit()
                 HStack(spacing: 16) {
@@ -88,6 +88,8 @@ struct TimerView: View {
 
             }
             Button {
+                //TODO: 시간값 반환
+                print(timeStringToFormattedString(minute: minute, second: second))
                 isShowTimer.toggle()
             } label: {
                 Text("타이머 설정")
@@ -106,6 +108,37 @@ struct TimerView: View {
         .onAppear() {
             focusedField = .minute
         }
+    }
+    
+    func timeStringToFormattedString(minute: String, second: String) -> String {
+        guard let minuteValue = Int(minute), let secondValue = Int(second) else {
+            return ""
+        }
+        
+        if minuteValue < 0 || minuteValue > 99 || secondValue < 0 || secondValue > 99 {
+            return ""
+        }
+        
+        let timeInterval = TimeInterval(minuteValue * 60 + secondValue)
+        let hour = Int(timeInterval) / 3600
+        let minute = (Int(timeInterval) % 3600) / 60
+        let second = Int(timeInterval) % 60
+        
+        var formattedString = ""
+        
+        if hour > 0 {
+            formattedString += "\(hour)h"
+        }
+        
+        if minute > 0 {
+            formattedString += " \(minute)m"
+        }
+        
+        if second > 0 {
+            formattedString += " \(second)s"
+        }
+        
+        return formattedString.trimmingCharacters(in: .whitespaces)
     }
 }
 
