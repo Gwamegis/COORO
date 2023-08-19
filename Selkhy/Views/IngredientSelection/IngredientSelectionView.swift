@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct IngredientSelectionView: View {
+    @Binding var isShowIngredientSelection: Bool
     // 재료 리스트들
     let vegetables: [(name: String, english: String)] = [
         ("당근", "carrot"),
@@ -85,10 +86,22 @@ struct IngredientSelectionView: View {
             Color.Background
                 .ignoresSafeArea()
             VStack(spacing: 20) {
-                Text("재료선택")
-                    .font(.system(size: 20, weight: .bold))
-                    .padding(.top)
-                    .foregroundColor(.white)
+                HStack {
+                    Spacer()
+                    Text("재료선택")
+                        .font(.system(size: 20, weight: .bold))
+                        .padding(.top)
+                        .foregroundColor(.white)
+                        .padding(.trailing, 120)
+
+                    Button(action: {
+                        isShowIngredientSelection = false
+                    }) {
+                        Image(systemName: "xmark")
+                            .font(.system(size: 20, weight: .bold))
+                            .foregroundColor(.white)
+                    }
+                }
                 
                 createGridView(title: "채소코너", items: vegetables, selection: $vegetablesSelected)
                 createGridView(title: "정육코너", items: meats, selection: $meatsSelected)
@@ -102,6 +115,7 @@ struct IngredientSelectionView: View {
                 
                 Button(action: {
                     // 필요한 액션을 여기에 작성
+                    isShowIngredientSelection = false
                 }) {
                     Text("\(totalSelected)가지 재료선택")
                         .font(.system(size: 18))
@@ -123,6 +137,6 @@ struct IngredientSelectionView: View {
 
 struct IngredientSelectionView_Previews: PreviewProvider {
     static var previews: some View {
-        IngredientSelectionView()
+        IngredientSelectionView(isShowIngredientSelection: .constant(false))
     }
 }
