@@ -43,6 +43,6 @@ enum CookAction {
 struct Cook: Identifiable {
     var id = UUID()
     var ingredients: [Ingredient]?
-    var action: CookAction
-    var time: String
+    var action: CookAction?
+    var time: String?
 }

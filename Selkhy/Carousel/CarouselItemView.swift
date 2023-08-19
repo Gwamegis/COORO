@@ -14,6 +14,7 @@ struct CarouselItemView: View {
     @Binding var isShowIngredientSelection: Bool
     @Binding var isShowCookActionSelection: Bool
     @Binding var isShowTimeSelection: Bool
+//    @Binding var selectedAction: CookAction?
     
     var body: some View {
         ZStack {
@@ -57,7 +58,7 @@ struct CarouselItemView: View {
                             }
                         }
                         
-                        Text("조리")
+                        Text(item.action?.actionTitle ?? "")
                             .font(.system(size: 20, weight: .bold))
                             .foregroundColor(.black).opacity(0.4)
                         

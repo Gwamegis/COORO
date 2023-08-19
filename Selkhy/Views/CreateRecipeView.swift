@@ -9,13 +9,14 @@ import SwiftUI
 
 struct CreateRecipeView: View {
     
-    @State var items: [Cook] = [Cook(action: .boil, time: ""), Cook(action: .boil, time: "")]
+    @State var items: [Cook] = [Cook(), Cook()]
     @State var currentIndex = 0
     @State var isShowIngredientSelection: Bool = false
     @State var menu: Menu?
     @State var selectedIngredientsEnglishNames: [String] = []
     @State var isShowCookActionSelection: Bool = false
     @State var isShowTimeSelection: Bool = false
+    @State var selectedAction: CookAction? = nil
     
     let spacing: CGFloat  = 10
     let itemWidth: CGFloat = 290
@@ -75,7 +76,7 @@ struct CreateRecipeView: View {
                         IngredientSelectionView(isShowIngredientSelection: $isShowIngredientSelection, menu: $menu, currentIndex: $currentIndex, selectedEnglishNames: $selectedIngredientsEnglishNames)
                     }
                 .fullScreenCover(isPresented: $isShowCookActionSelection) {
-                    SelectedCookActionView(isShowCookActionSelection: $isShowCookActionSelection)
+                    SelectedCookActionView(isShowCookActionSelection: $isShowCookActionSelection, cook: $items[currentIndex])
                 }
                 .fullScreenCover(isPresented: $isShowTimeSelection) {
                     TimerView(isShowTimer: $isShowTimeSelection)
