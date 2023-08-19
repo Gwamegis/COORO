@@ -31,17 +31,33 @@ struct CarouselItemView: View {
                         Button {
                             self.isShowIngredientSelection.toggle()
                         } label: {
-                            VStack(spacing: 26) {
-                                Image("SelectButton")
+                            if item.ingredients?.count ?? 0 >= 1 {
+                                Image("paperBag")
                                     .resizable()
-                                    .scaledToFill()
+                                    .scaledToFit()
                                     .frame(width: 70, height: 70)
+                                // .offset(y: 20)
+                            } else {
+                                VStack(spacing: 26) {
+                                    Image("SelectButton")
+                                        .resizable()
+                                        .scaledToFill()
+                                        .frame(width: 70, height: 70)
+                                }
                             }
                         }
                         
-                        Text("재료")
-                            .font(.system(size: 20, weight: .bold))
-                            .foregroundColor(.black).opacity(0.4)
+                        if item.ingredients?.count ?? 0 >= 1 {
+                            VStack(spacing: 26) {
+                                Text("\(item.ingredients?.count ?? 0)개")
+                                    .font(.system(size: 20, weight: .bold))
+                                    .foregroundColor(.black).opacity(0.4)
+                            }
+                        } else {
+                            Text("재료")
+                                .font(.system(size: 20, weight: .bold))
+                                .foregroundColor(.black).opacity(0.4)
+                        }
                         
                     }
                     

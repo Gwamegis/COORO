@@ -12,35 +12,13 @@ struct IngredientSelectionView: View {
     @Binding var menu: Menu?
     @Binding var currentIndex: Int
     @Binding var selectedEnglishNames: [String]
+    @Binding var cook: Cook
 
     // 재료 리스트들
-    let vegetables: [(name: String, english: String)] = [
-        ("당근", "carrot"),
-        ("대파", "greenOnion"),
-        ("양파", "onion"),
-        ("가지", "eggplant"),
-        ("고추", "chili"),
-        ("마늘", "garlic"),
-        ("감자", "potato"),
-        ("김치", "kimchi")
-    ]
-    let meats: [(name: String, english: String)] = [
-        ("갈비살", "ribeye"),
-        ("삼겹살", "porkBelly"),
-        ("목살", "neckMeat"),
-        ("베이컨", "bacon")
-    ]
-    let dairy: [(name: String, english: String)] = [
-        ("계란", "egg"),
-        ("우유", "milk"),
-        ("요거트", "yogurt"),
-        ("치즈", "cheese")
-    ]
-    let grain: [(name: String, english: String)] = [
-        ("쌀밥", "rice"),
-        ("땅콩", "peanut")
-    ]
-    
+    let vegetables = IngredientList.shared.vegetables
+    let meats = IngredientList.shared.meats
+    let dairy = IngredientList.shared.dairy
+    let grain = IngredientList.shared.grain
     
     // 각 재료의 선택 여부를 저장
     @State private var vegetablesSelected: [Bool] = Array(repeating: false, count: 8)
@@ -83,6 +61,8 @@ struct IngredientSelectionView: View {
         } else {
             menu?.recipe.produce.append(newProduce)
         }
+        cook.ingredients = newProduce.ingredients
+        
         isShowIngredientSelection = false
     }
 
