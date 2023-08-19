@@ -9,6 +9,6 @@ import SwiftUI
 
 struct Review {
     var score: Int
-    var photo: Image
+    var photo: Image?
     var content: String
 }
