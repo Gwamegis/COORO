@@ -6,6 +6,8 @@
 //
 
 import SwiftUI
+import AVFoundation
+
 
 struct CreateRecipeView: View {
     
@@ -16,11 +18,13 @@ struct CreateRecipeView: View {
     @State var selectedIngredientsEnglishNames: [String] = []
     @State var isShowCookActionSelection: Bool = false
     @State var isShowTimeSelection: Bool = false
-    @State var selectedAction: CookAction? = nil
+    @State private var isAnimating = false
     
     let spacing: CGFloat  = 10
     let itemWidth: CGFloat = 290
     let itemHeight: CGFloat = 208
+    
+    private let audioManager = AudioManager.instance
     
     init() {
             _menu = State(initialValue: Menu(
@@ -41,7 +45,7 @@ struct CreateRecipeView: View {
             
             Spacer()
             
-            ZStack {
+            ZStack(alignment: .bottom) {
                 Image("Pot")
                     .resizable()
                     .scaledToFit()
@@ -57,6 +61,29 @@ struct CreateRecipeView: View {
                     .resizable()
                     .scaledToFit()
                     .frame(width: 300, height: 240)
+                
+                if items[currentIndex].action != nil {
+                    Image("Fire")
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: 195)
+                        .padding(.bottom, -15)
+                        .offset(y: isAnimating ? -5 : 5)
+                        .onAppear {
+                            withAnimation(Animation.easeInOut(duration: 1.0).repeatForever(autoreverses: true)) {
+                                isAnimating = true
+                            }
+                        }
+                }
+            }
+            .padding(.bottom, -50)
+            .onChange(of: items[currentIndex].action) { newValue in
+                print(newValue)
+                if let action = newValue {
+                    audioManager.playSoundAsset(assetName: "\(action.getThumbnailImageFimeName())Audio")
+                } else {
+                    audioManager.stopSound()
+                }
             }
             
             Carousel(items: $items,
@@ -79,7 +106,7 @@ struct CreateRecipeView: View {
                     SelectedCookActionView(isShowCookActionSelection: $isShowCookActionSelection, cook: $items[currentIndex])
                 }
                 .fullScreenCover(isPresented: $isShowTimeSelection) {
-                    TimerView(isShowTimer: $isShowTimeSelection)
+                    TimerView(isShowTimer: $isShowTimeSelection, cook: $items[currentIndex])
                 }
             }
                      .padding(.bottom, 50)
@@ -138,7 +165,7 @@ struct AnimatedImage: View {
             .offset(x: randomX, y: offset)
             .onAppear() {
                 withAnimation(Animation.easeIn(duration: randomDuration)) {
-                    offset = 0
+                    offset = -30
                     rotation = 360.0
                 }
             }

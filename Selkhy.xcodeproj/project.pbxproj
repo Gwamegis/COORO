@@ -43,6 +43,7 @@
 		F9495A4A2A9111E400876166 /* BlackOpsOne-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F9495A492A9111E400876166 /* BlackOpsOne-Regular.ttf */; };
 		F9495A4C2A91121F00876166 /* Font+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9495A4B2A91121F00876166 /* Font+Extension.swift */; };
 		F9495A4F2A91536100876166 /* CompleteRegisterRecipeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9495A4E2A91536100876166 /* CompleteRegisterRecipeView.swift */; };
+		F9495A572A91841500876166 /* AudioManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9495A562A91841500876166 /* AudioManager.swift */; };
 		F9BF4E052A90A3FD009D4624 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9BF4E042A90A3FD009D4624 /* Colors.swift */; };
 		F9BF4E0B2A90B8B9009D4624 /* ReviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9BF4E0A2A90B8B9009D4624 /* ReviewView.swift */; };
 		F9BF4E0D2A90C7A8009D4624 /* FlexibleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9BF4E0C2A90C7A8009D4624 /* FlexibleView.swift */; };
@@ -70,7 +71,7 @@
 		208033592A904ACA009298E0 /* Selkhy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Selkhy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2080335C2A904ACA009298E0 /* SelkhyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelkhyApp.swift; sourceTree = "<group>"; };
 		2080335E2A904ACA009298E0 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
-		208033602A904ACC009298E0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		208033602A904ACC009298E0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = /Users/jeonjimin/Documents/iOS_Project/Selkhy/Selkhy/Assets.xcassets; sourceTree = "<absolute>"; };
 		208033632A904ACC009298E0 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		208033692A904ACC009298E0 /* SelkhyTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SelkhyTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2080336D2A904ACC009298E0 /* SelkhyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelkhyTests.swift; sourceTree = "<group>"; };
@@ -107,6 +108,7 @@
 		F9495A4B2A91121F00876166 /* Font+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Font+Extension.swift"; sourceTree = "<group>"; };
 		F9495A4D2A9113F600876166 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		F9495A4E2A91536100876166 /* CompleteRegisterRecipeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompleteRegisterRecipeView.swift; sourceTree = "<group>"; };
+		F9495A562A91841500876166 /* AudioManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioManager.swift; sourceTree = "<group>"; };
 		F9BF4E042A90A3FD009D4624 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		F9BF4E0A2A90B8B9009D4624 /* ReviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewView.swift; sourceTree = "<group>"; };
 		F9BF4E0C2A90C7A8009D4624 /* FlexibleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlexibleView.swift; sourceTree = "<group>"; };
@@ -260,6 +262,7 @@
 				876F90642A905E1B00F4466E /* Cook.swift */,
 				F9BF4E042A90A3FD009D4624 /* Colors.swift */,
 				208033882A90B667009298E0 /* MenuData.swift */,
+				F9495A562A91841500876166 /* AudioManager.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -452,6 +455,7 @@
 				F9BF4E0D2A90C7A8009D4624 /* FlexibleView.swift in Sources */,
 				F9BF4E0B2A90B8B9009D4624 /* ReviewView.swift in Sources */,
 				87CF06972A9113B6008BF19B /* CreateRecipeView.swift in Sources */,
+				F9495A572A91841500876166 /* AudioManager.swift in Sources */,
 				F9BF4E132A90ECAC009D4624 /* View+Extension.swift in Sources */,
 				876F90592A9056DB00F4466E /* RecipeView.swift in Sources */,
 				87CF06912A911013008BF19B /* Carousel.swift in Sources */,

@@ -49,9 +49,9 @@ struct CompleteRegisterRecipeView: View {
                 .opacity(isAnimating ? 0.5 : 1.0)
                 .animation(Animation.easeInOut(duration: 0.8).repeatForever(autoreverses: true))
             
-            VStack(spacing: 60) {
+            VStack(spacing: 40) {
                 Spacer()
-                Image("Sandwich")
+                Image("FriedRice")
                     .resizable()
                     .scaledToFit()
                     .frame(width: 285)

@@ -25,7 +25,7 @@ struct CarouselItemView: View {
                     .font(Font.Cooro.CarouselFont)
                     .padding(.top, 30)
                 
-                HStack(spacing: 18) {
+                HStack(spacing: 0) {
                     
                     VStack(spacing: 26) {
                         
@@ -63,7 +63,7 @@ struct CarouselItemView: View {
                         }
                         
                     }
-                    
+                    Spacer()
                     VStack(spacing: 26) {
                         Image(item.action?.getThumbnailImageFimeName() ?? "SelectButton")
                             .resizable()
@@ -83,19 +83,29 @@ struct CarouselItemView: View {
                                 .foregroundColor(.black).opacity(0.4)
                         }
                     }
-                    
+                    Spacer()
                     VStack(spacing: 26) {
-                        Image("SelectButton")
-                            .resizable()
-                            .scaledToFill()
-                            .frame(width: 70, height: 70)
-                            .onTapGesture {
-                                isShowTimeSelection.toggle()
-                            }
+                        Button {
+                            isShowTimeSelection.toggle()
+                        } label: {
+                            Image(item.time != nil ? "Timer" : "SelectButton")
+                                .resizable()
+                                .scaledToFill()
+                                .frame(width: 70, height: 70)
+                                .onTapGesture {
+                                    isShowTimeSelection.toggle()
+                                }
+                        }
                         
-                        Text("시간")
-                            .font(.system(size: 20, weight: .bold))
-                            .foregroundColor(.black).opacity(0.4)
+                        if let time = item.time {
+                            Text(time)
+                                .font(.system(size: 20, weight: .bold))
+                                .foregroundColor(.Point)
+                        } else {
+                            Text("시간")
+                                .font(.system(size: 20, weight: .bold))
+                                .foregroundColor(.black).opacity(0.4)
+                        }
                         
                     }
                 }

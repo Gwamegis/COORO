@@ -14,6 +14,7 @@ struct TimerView: View {
     }
     
     @Binding var isShowTimer: Bool
+    @Binding var cook: Cook
     @State var minute = ""
     @State var second = ""
     @State var minutePlaceholder = "00"
@@ -24,6 +25,29 @@ struct TimerView: View {
     var body: some View {
         VStack {
             ZStack {
+                HStack{
+                    Button {
+                    } label: {
+                        Image(systemName: "xmark")
+                            .font(.system(size: 20, weight: .bold))
+                            .foregroundColor(.clear)
+                    }
+                    Spacer()
+                    Text("시간 선택")
+                        .font(.system(size: 20, weight: .bold))
+                        .foregroundColor(.white)
+                        .frame(maxWidth: .infinity)
+                    Spacer()
+                    Button {
+                        isShowTimer.toggle()
+                    } label: {
+                        Image(systemName: "xmark")
+                            .font(.system(size: 20, weight: .bold))
+                            .foregroundColor(.white)
+                    }
+                }
+                .padding(.horizontal, 20)
+                
                 Image("Timer_back")
                     .resizable()
                     .scaledToFit()
@@ -89,7 +113,7 @@ struct TimerView: View {
             }
             Button {
                 //TODO: 시간값 반환
-                print(timeStringToFormattedString(minute: minute, second: second))
+                cook.time = timeStringToFormattedString(minute: minute, second: second)
                 isShowTimer.toggle()
             } label: {
                 Text("타이머 설정")
@@ -142,8 +166,8 @@ struct TimerView: View {
     }
 }
 
-struct TimerView_Previews: PreviewProvider {
-    static var previews: some View {
-        TimerView(isShowTimer: .constant(true))
-    }
-}
+//struct TimerView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        TimerView(isShowTimer: .constant(true))
+//    }
+//}
