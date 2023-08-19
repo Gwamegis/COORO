@@ -40,7 +40,7 @@ struct RecipeView: View {
                 VStack(spacing: 20) {
                     Text(menu.name)
                         .font(.system(size: 20, weight: .bold))
-                    Text("\(numberFormatter(number:menu.recipe.price))원")
+                    Text("\(menu.recipe.price)원")
                         .font(.system(size: 20, weight: .bold))
                         .foregroundColor(.Point)
                     Text(menu.story)

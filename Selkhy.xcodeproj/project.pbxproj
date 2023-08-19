@@ -14,8 +14,10 @@
 		2080336E2A904ACC009298E0 /* SelkhyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2080336D2A904ACC009298E0 /* SelkhyTests.swift */; };
 		208033782A904ACC009298E0 /* SelkhyUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 208033772A904ACC009298E0 /* SelkhyUITests.swift */; };
 		2080337A2A904ACC009298E0 /* SelkhyUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 208033792A904ACC009298E0 /* SelkhyUITestsLaunchTests.swift */; };
-		208033872A907A03009298E0 /* RankingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 208033862A907A03009298E0 /* RankingView.swift */; };
 		208033892A90B667009298E0 /* MenuData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 208033882A90B667009298E0 /* MenuData.swift */; };
+		2080338D2A90C101009298E0 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2080338C2A90C101009298E0 /* HomeView.swift */; };
+		208033922A90C663009298E0 /* MenuCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 208033912A90C663009298E0 /* MenuCell.swift */; };
+		208033942A90C6C5009298E0 /* RankingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 208033932A90C6C5009298E0 /* RankingCell.swift */; };
 		876F90592A9056DB00F4466E /* RecipeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 876F90582A9056DB00F4466E /* RecipeView.swift */; };
 		876F905B2A9056E900F4466E /* OrderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 876F905A2A9056E900F4466E /* OrderView.swift */; };
 		876F905D2A9056FF00F4466E /* Menu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 876F905C2A9056FF00F4466E /* Menu.swift */; };
@@ -56,8 +58,10 @@
 		208033732A904ACC009298E0 /* SelkhyUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SelkhyUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		208033772A904ACC009298E0 /* SelkhyUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelkhyUITests.swift; sourceTree = "<group>"; };
 		208033792A904ACC009298E0 /* SelkhyUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelkhyUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		208033862A907A03009298E0 /* RankingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankingView.swift; sourceTree = "<group>"; };
 		208033882A90B667009298E0 /* MenuData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuData.swift; sourceTree = "<group>"; };
+		2080338C2A90C101009298E0 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		208033912A90C663009298E0 /* MenuCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuCell.swift; sourceTree = "<group>"; };
+		208033932A90C6C5009298E0 /* RankingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankingCell.swift; sourceTree = "<group>"; };
 		876F90582A9056DB00F4466E /* RecipeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeView.swift; sourceTree = "<group>"; };
 		876F905A2A9056E900F4466E /* OrderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderView.swift; sourceTree = "<group>"; };
 		876F905C2A9056FF00F4466E /* Menu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Menu.swift; sourceTree = "<group>"; };
@@ -152,14 +156,24 @@
 			path = SelkhyUITests;
 			sourceTree = "<group>";
 		};
+		2080338E2A90C123009298E0 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				2080338C2A90C101009298E0 /* HomeView.swift */,
+				208033912A90C663009298E0 /* MenuCell.swift */,
+				208033932A90C6C5009298E0 /* RankingCell.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
 		876F90562A90568500F4466E /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				2080338E2A90C123009298E0 /* Home */,
 				2080335E2A904ACA009298E0 /* ContentView.swift */,
 				876F90582A9056DB00F4466E /* RecipeView.swift */,
 				F9BF4E0A2A90B8B9009D4624 /* ReviewView.swift */,
 				876F905A2A9056E900F4466E /* OrderView.swift */,
-				208033862A907A03009298E0 /* RankingView.swift */,
 				876F90662A90A1D800F4466E /* Launch Screen.storyboard */,
 			);
 			path = Views;
@@ -310,17 +324,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				208033922A90C663009298E0 /* MenuCell.swift in Sources */,
 				876F90652A905E1B00F4466E /* Cook.swift in Sources */,
 				F9BF4E052A90A3FD009D4624 /* Colors.swift in Sources */,
+				2080338D2A90C101009298E0 /* HomeView.swift in Sources */,
 				876F90612A90578200F4466E /* Ingredient.swift in Sources */,
 				876F90632A9058E100F4466E /* Review.swift in Sources */,
 				208033892A90B667009298E0 /* MenuData.swift in Sources */,
 				F9BF4E0B2A90B8B9009D4624 /* ReviewView.swift in Sources */,
 				876F90592A9056DB00F4466E /* RecipeView.swift in Sources */,
+				208033942A90C6C5009298E0 /* RankingCell.swift in Sources */,
 				876F905B2A9056E900F4466E /* OrderView.swift in Sources */,
 				2080335F2A904ACA009298E0 /* ContentView.swift in Sources */,
 				876F905F2A90570E00F4466E /* Recipe.swift in Sources */,
-				208033872A907A03009298E0 /* RankingView.swift in Sources */,
 				2080335D2A904ACA009298E0 /* SelkhyApp.swift in Sources */,
 				876F905D2A9056FF00F4466E /* Menu.swift in Sources */,
 			);
