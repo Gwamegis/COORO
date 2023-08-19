@@ -9,7 +9,6 @@ import SwiftUI
 
 struct CompleteRegisterRecipeView: View {
     @Environment(\.dismiss) var dismiss
-    
     let name: String
     
     @State private var isAnimating = false

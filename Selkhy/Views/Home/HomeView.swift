@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct HomeView: View {
-    let menus = mockMenus
+    @EnvironmentObject var menuStore: MenuStore
     var body: some View {
         NavigationView {
             ZStack{
@@ -50,11 +50,11 @@ struct HomeView: View {
                         
                         ScrollView(.horizontal, showsIndicators: false) {
                             HStack {
-                                ForEach(menus.indices, id: \.self) { index in
+                                ForEach($menuStore.mockMenus.indices, id: \.self) { index in
                                     NavigationLink {
-                                        RecipeView(menu: menus[index])
+                                        RecipeView(menu: menuStore.mockMenus[index])
                                     } label: {
-                                        MenuCell(menu: menus[index])
+                                        MenuCell(menu: menuStore.mockMenus[index])
                                     }
                                 }
                             }
@@ -71,9 +71,9 @@ struct HomeView: View {
                                 .foregroundColor(Color("LightGrey"))
                         }
                         VStack(alignment: .leading, spacing: 15) {
-                            ForEach(menus.indices, id: \.self) { index in
-                                NavigationLink(destination: RecipeVoteView(menu: menus[index])) {
-                                    RankingCell(rank: index + 1, menu: menus[index])
+                            ForEach($menuStore.mockMenus.indices, id: \.self) { index in
+                                NavigationLink(destination: RecipeVoteView(menu: menuStore.mockMenus[index])) {
+                                    RankingCell(rank: index + 1, menu: menuStore.mockMenus[index])
                                 }
                             }
                         }
@@ -83,6 +83,10 @@ struct HomeView: View {
                     .padding(.horizontal, 20)
                 }
             }
+        }
+        .navigationViewStyle(.stack)
+        .onAppear {
+            print("asdfasdfasdfasdfasdf")
         }
     }
 }
