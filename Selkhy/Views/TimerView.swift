@@ -15,6 +15,7 @@ struct TimerView: View {
     
     @Binding var isShowTimer: Bool
     @Binding var cook: Cook
+//    @Binding var menu: Menu?
     @State var minute = ""
     @State var second = ""
     @State var minutePlaceholder = "00"

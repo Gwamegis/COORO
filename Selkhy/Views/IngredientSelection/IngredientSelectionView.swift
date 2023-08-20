@@ -9,7 +9,7 @@ import SwiftUI
 
 struct IngredientSelectionView: View {
     @Binding var isShowIngredientSelection: Bool
-    @Binding var menu: Menu?
+//    @Binding var menu: Menu?
     @Binding var currentIndex: Int
     @Binding var selectedEnglishNames: [String]
     @Binding var cook: Cook
@@ -54,13 +54,14 @@ struct IngredientSelectionView: View {
             return englishName != nil ? englishName! + "2" : nil
         }
         
-        let newProduce = Cook(ingredients: allSelectedIngredients, action: .fry, time: "7m 30s")
+        let newProduce = Cook(ingredients: allSelectedIngredients, action: nil, time: nil)
 
-        if currentIndex >= 0 && currentIndex < menu?.recipe.produce.count ?? 0 {
-            menu?.recipe.produce[currentIndex] = newProduce
-        } else {
-            menu?.recipe.produce.append(newProduce)
-        }
+        
+//        if currentIndex >= 0 && currentIndex < menu?.recipe.produce.count ?? 0 {
+//            menu?.recipe.produce[currentIndex] = newProduce
+//        } else {
+//            menu?.recipe.produce.append(newProduce)
+//        }
         cook.ingredients = newProduce.ingredients
         
         isShowIngredientSelection = false

@@ -14,7 +14,7 @@ struct CreateRecipeView: View {
     @State var items: [Cook] = [Cook(), Cook()]
     @State var currentIndex = 0
     @State var isShowIngredientSelection: Bool = false
-    @State var menu: Menu?
+//    @State var menu: Menu?
     @State var selectedIngredientsEnglishNames: [String] = []
     @State var isShowCookActionSelection: Bool = false
     @State var isShowTimeSelection: Bool = false
@@ -26,18 +26,18 @@ struct CreateRecipeView: View {
     
     private let audioManager = AudioManager.instance
     
-    init() {
-            _menu = State(initialValue: Menu(
-                name: "",  // 초기 값을 적절히 설정하십시오.
-                numberOfOrder: 0,
-                creater: "",
-                likes: 0,
-                story: "",
-                recipe: Recipe(ingredients: [], amount: [], price: 0, produce: []),
-                review: [],
-                image: Image("default")
-            ))
-        }
+//    init() {
+//            _menu = State(initialValue: Menu(
+//                name: "",  // 초기 값을 적절히 설정하십시오.
+//                numberOfOrder: 0,
+//                creater: "",
+//                likes: 0,
+//                story: "",
+//                recipe: Recipe(ingredients: [], amount: [], price: 0, produce: []),
+//                review: [],
+//                image: Image("default")
+//            ))
+//        }
     
     var body: some View {
         
@@ -100,7 +100,7 @@ struct CreateRecipeView: View {
                                  isShowTimeSelection: $isShowTimeSelection
                 )
                 .fullScreenCover(isPresented: $isShowIngredientSelection) {
-                        IngredientSelectionView(isShowIngredientSelection: $isShowIngredientSelection, menu: $menu, currentIndex: $currentIndex, selectedEnglishNames: $selectedIngredientsEnglishNames, cook: $items[currentIndex])
+                        IngredientSelectionView(isShowIngredientSelection: $isShowIngredientSelection, currentIndex: $currentIndex, selectedEnglishNames: $selectedIngredientsEnglishNames, cook: $items[currentIndex])
                     }
                 .fullScreenCover(isPresented: $isShowCookActionSelection) {
                     SelectedCookActionView(isShowCookActionSelection: $isShowCookActionSelection, cook: $items[currentIndex])
@@ -114,7 +114,8 @@ struct CreateRecipeView: View {
             Spacer()
             
             NavigationLink {
-                RegisterRecipeView(menu: menu)
+//                RegisterRecipeView(menu: items)
+                RegisterRecipeView(items: $items)
             } label: {
                 Text("완료")
                     .font(.system(size: 18, weight: .bold))
@@ -127,6 +128,18 @@ struct CreateRecipeView: View {
                     )
                     .padding([.horizontal, .bottom], 20)
             }
+//            .simultaneousGesture(TapGesture().onEnded{
+                
+//                if var menu {
+//                    menu.name = name
+//                    menu.story = story
+//                    menu.recipe.ingredients = getIngredients()
+//                    isCompleted.toggle()
+//                    menu.image = Image("FriedRice")
+//                    menuStore.mockMenus.append(menu)
+//                    // mockMenus.append(menu)
+//                }
+//            })
         }
         .background(Color.Background)
         .navigationBarBackButtonHidden(true)
