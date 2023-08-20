@@ -68,7 +68,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		208033592A904ACA009298E0 /* Selkhy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Selkhy.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		208033592A904ACA009298E0 /* COORO.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = COORO.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2080335C2A904ACA009298E0 /* SelkhyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelkhyApp.swift; sourceTree = "<group>"; };
 		2080335E2A904ACA009298E0 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		208033602A904ACC009298E0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = /Users/jeonjimin/Documents/iOS_Project/Selkhy/Selkhy/Assets.xcassets; sourceTree = "<absolute>"; };
@@ -154,7 +154,7 @@
 		2080335A2A904ACA009298E0 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				208033592A904ACA009298E0 /* Selkhy.app */,
+				208033592A904ACA009298E0 /* COORO.app */,
 				208033692A904ACC009298E0 /* SelkhyTests.xctest */,
 				208033732A904ACC009298E0 /* SelkhyUITests.xctest */,
 			);
@@ -320,7 +320,7 @@
 			);
 			name = Selkhy;
 			productName = Selkhy;
-			productReference = 208033592A904ACA009298E0 /* Selkhy.app */;
+			productReference = 208033592A904ACA009298E0 /* COORO.app */;
 			productType = "com.apple.product-type.application";
 		};
 		208033682A904ACC009298E0 /* SelkhyTests */ = {
@@ -627,7 +627,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Selkhy/Preview Content\"";
-				DEVELOPMENT_TEAM = L3A22T43UF;
+				DEVELOPMENT_TEAM = Y6P5ZFWBM8;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Selkhy/Info.plist;
@@ -644,7 +644,7 @@
 				);
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.Kyubo.Selkhy;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = COORO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -662,6 +662,7 @@
 				DEVELOPMENT_TEAM = L3A22T43UF;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				IBSC_MODULE = COORO;
 				INFOPLIST_FILE = Selkhy/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -676,7 +677,7 @@
 				);
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.Kyubo.Selkhy;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = COORO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
