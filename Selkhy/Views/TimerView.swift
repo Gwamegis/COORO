@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct TimerView: View {
+    @Environment(\.dismiss) var dismiss
+    
     enum Field: Hashable {
         case minute
         case second
@@ -23,109 +25,111 @@ struct TimerView: View {
     @FocusState private var focusedField: Field?
     
     var body: some View {
-        VStack {
-            ZStack {
-                HStack{
-                    Button {
-                    } label: {
-                        Image(systemName: "xmark")
-                            .font(.system(size: 20, weight: .bold))
-                            .foregroundColor(.clear)
-                    }
-                    Spacer()
-                    Text("시간 선택")
+        ZStack(alignment: .top){
+            HStack{
+                Button {
+                } label: {
+                    Image(systemName: "xmark")
+                        .font(.system(size: 20, weight: .bold))
+                        .foregroundColor(.clear)
+                }
+                Spacer()
+                Text("시간 선택")
+                    .font(.system(size: 20, weight: .bold))
+                    .foregroundColor(.white)
+                    .frame(maxWidth: .infinity)
+                Spacer()
+                Button {
+                    isShowTimer.toggle()
+                } label: {
+                    Image(systemName: "xmark")
                         .font(.system(size: 20, weight: .bold))
                         .foregroundColor(.white)
-                        .frame(maxWidth: .infinity)
-                    Spacer()
-                    Button {
-                        isShowTimer.toggle()
-                    } label: {
-                        Image(systemName: "xmark")
-                            .font(.system(size: 20, weight: .bold))
-                            .foregroundColor(.white)
-                    }
                 }
-                .padding(.horizontal, 20)
-                
-                Image("Timer_back")
-                    .resizable()
-                    .scaledToFit()
-                HStack(spacing: 16) {
-                    ZStack(alignment: .trailing) {
-                        Text(minutePlaceholder)
-                            .foregroundColor(.Grey02)
-                            .frame(maxWidth: .infinity, alignment: .trailing)
-                        HStack {
-                            TextField("", text: $minute)
-                                .focused($focusedField, equals: .minute)
-                                .keyboardType(.numberPad)
-                                .onChange(of: minute) { newValue in
-                                    switch newValue.count {
-                                    case 0:
-                                        minutePlaceholder = "00"
-                                    case 1:
-                                        minutePlaceholder = "0"
-                                    case 2:
-                                        minutePlaceholder = ""
-                                    case 3:
-                                        focusedField = .second
-                                        second = newValue.lastString
-                                        minute.removeLast()
-                                        secondPlaceholder = "0"
-                                    default:
-                                        minutePlaceholder = ""
-                                    }
-                                }
-                        }
-                    }
-                    .frame(width: 90)
-                    Text(":")
-                        .foregroundColor(second.count < 1 ? .Grey02 : .Point)
-                    ZStack(alignment: .leading) {
-                        Text(secondPlaceholder)
-                            .foregroundColor(.Grey02)
-                            .frame(maxWidth: .infinity, alignment: .trailing)
-                        TextField("", text: $second, prompt: Text("00").foregroundColor(.Grey02))
-                            .focused($focusedField, equals: .second)
-                            .keyboardType(.numberPad)
-                            .onChange(of: second) { newValue in
-                                switch newValue.count {
-                                case 0:
-                                    secondPlaceholder = "00"
-                                    focusedField = .minute
-                                case 1:
-                                    secondPlaceholder = "0"
-                                case 2:
-                                    secondPlaceholder = ""
-                                default:
-                                    second.removeLast()
-                                    
-                                }
-                            }
-                        
-                    }
-                    .frame(width: 90)
-                }
-                .font(Font.Cooro.TimerFont)
-                .foregroundColor(Color.Point)
-
-            }
-            Button {
-                //TODO: 시간값 반환
-                cook.time = timeStringToFormattedString(minute: minute, second: second)
-                isShowTimer.toggle()
-            } label: {
-                Text("타이머 설정")
-                    .font(.system(size: 18, weight: .bold))
-                    .foregroundColor(.white)
-                    .padding(.vertical, 19)
-                    .frame(maxWidth: .infinity)
-                    .background(Color.Point).opacity(minute.isEmpty || second.isEmpty ? 0.4 : 1)
-                    .cornerRadius(10)
             }
             .padding(.horizontal, 20)
+            VStack {
+                ZStack {
+                    Image("Timer_back")
+                        .resizable()
+                        .scaledToFit()
+                    HStack(spacing: 16) {
+                        ZStack(alignment: .trailing) {
+                            Text(minutePlaceholder)
+                                .foregroundColor(.Grey02)
+                                .frame(maxWidth: .infinity, alignment: .trailing)
+                            HStack {
+                                TextField("", text: $minute)
+                                    .focused($focusedField, equals: .minute)
+                                    .keyboardType(.numberPad)
+                                    .onChange(of: minute) { newValue in
+                                        switch newValue.count {
+                                        case 0:
+                                            minutePlaceholder = "00"
+                                        case 1:
+                                            minutePlaceholder = "0"
+                                        case 2:
+                                            minutePlaceholder = ""
+                                        case 3:
+                                            focusedField = .second
+                                            second = newValue.lastString
+                                            minute.removeLast()
+                                            secondPlaceholder = "0"
+                                        default:
+                                            minutePlaceholder = ""
+                                        }
+                                    }
+                            }
+                        }
+                        .frame(width: 90)
+                        Text(":")
+                            .foregroundColor(second.count < 1 ? .Grey02 : .Point)
+                        ZStack(alignment: .leading) {
+                            Text(secondPlaceholder)
+                                .foregroundColor(.Grey02)
+                                .frame(maxWidth: .infinity, alignment: .trailing)
+                            TextField("", text: $second, prompt: Text("00").foregroundColor(.Grey02))
+                                .focused($focusedField, equals: .second)
+                                .keyboardType(.numberPad)
+                                .onChange(of: second) { newValue in
+                                    switch newValue.count {
+                                    case 0:
+                                        secondPlaceholder = "00"
+                                        focusedField = .minute
+                                    case 1:
+                                        secondPlaceholder = "0"
+                                    case 2:
+                                        secondPlaceholder = ""
+                                    default:
+                                        second.removeLast()
+                                        
+                                    }
+                                }
+                            
+                        }
+                        .frame(width: 90)
+                    }
+                    .font(Font.Cooro.TimerFont)
+                    .foregroundColor(Color.Point)
 
+                }
+                Button {
+                    //TODO: 시간값 반환
+                    cook.time = timeStringToFormattedString(minute: minute, second: second)
+                    isShowTimer.toggle()
+                } label: {
+                    Text("타이머 설정")
+                        .font(.system(size: 18, weight: .bold))
+                        .foregroundColor(.white)
+                        .padding(.vertical, 19)
+                        .frame(maxWidth: .infinity)
+                        .background(Color.Point).opacity(minute.isEmpty || second.isEmpty ? 0.4 : 1)
+                        .cornerRadius(10)
+                }
+                .padding(.horizontal, 20)
+
+            }
+            .frame(maxHeight: .infinity)
         }
         .frame(maxHeight: .infinity)
         .background(Color.Background)
