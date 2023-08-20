@@ -140,11 +140,11 @@ struct IngredientSelectionView: View {
                 
                 Button(action: onConfirmSelection) {
                     Text("\(totalSelected)가지 재료선택")
-                        .font(.system(size: 18))
+                        .font(.system(size: 18, weight: .bold))
                         .foregroundColor(.white)
                         .padding()
                         .frame(maxWidth: .infinity)
-                        .background(Color.blue)
+                        .background(Color.Point)
                         .cornerRadius(10)
                 }
                 .opacity(totalSelected > 0 ? 1 : 0)

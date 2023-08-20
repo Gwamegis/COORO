@@ -1,7 +1,7 @@
 //
 //  HomeView.swift
 //  Selkhy
-//
+//  
 //  Created by Kyubo Shim on 2023/08/19.
 //
 
@@ -74,7 +74,7 @@ struct HomeView: View {
                             ForEach(Array(menuStore.mockMenus.dropFirst(5)).indices, id: \.self) { index in
                                 let adjustedIndex = index + 5
                                 NavigationLink(destination: RecipeVoteView(menu: menuStore.mockMenus[adjustedIndex])) {
-                                    RankingCell(rank: adjustedIndex + 1, menu: menuStore.mockMenus[adjustedIndex])
+                                    RankingCell(rank: adjustedIndex - 4, menu: menuStore.mockMenus[adjustedIndex])
                                 }
                             }
                         }
@@ -86,6 +86,18 @@ struct HomeView: View {
             }
         }
         .navigationViewStyle(.stack)
+    }
+}
+
+extension UINavigationController: ObservableObject, UIGestureRecognizerDelegate {
+    override open func viewDidLoad() {
+        super.viewDidLoad()
+        navigationBar.isHidden = true
+        interactivePopGestureRecognizer?.delegate = self
+    }
+
+    public func gestureRecognizerShouldBegin(_ gestureRecognizer: UIGestureRecognizer) -> Bool {
+        return viewControllers.count > 1
     }
 }
 
