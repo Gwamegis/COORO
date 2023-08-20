@@ -66,7 +66,6 @@ struct RegisterRecipeView: View {
                         .font(.system(size: 14, weight: .bold))
                     
                     VStack(alignment: .leading) {
-//                        if let menu {
                         ForEach(Array(items.enumerated()), id: \.offset) { index, cook in
                             if index != items.count - 1 {
                                 HStack(spacing: 0) {
@@ -79,7 +78,6 @@ struct RegisterRecipeView: View {
                                 .frame(width: UIScreen.main.bounds.size.width - 60, alignment: .leading)
                             }
                         }
-//                        }
                     }
                     .padding(EdgeInsets(top: 20, leading: 10, bottom: 20, trailing: 10))
                     .background(
@@ -107,15 +105,6 @@ struct RegisterRecipeView: View {
                 .simultaneousGesture(TapGesture().onEnded{
                     let menu = Menu(name: name, numberOfOrder: 0, creater: "", likes: 0, story: story, recipe: Recipe(ingredients: [], amount: [], price: 0, produce: items), review: nil, image: Image("FriedRice"))
                     menuStore.mockMenus.append(menu)
-//                    if var menu {
-//                        menu.name = name
-//                        menu.story = story
-//                        menu.recipe.ingredients = getIngredients()
-//                        isCompleted.toggle()
-//                        menu.image = Image("FriedRice")
-//                        menuStore.mockMenus.append(menu)
-//                        // mockMenus.append(menu)
-//                    }
                 })
             }
             .padding(.horizontal, 20)
@@ -183,9 +172,7 @@ struct RegisterRecipeView: View {
     private func getIngredients() -> [Ingredient] {
         var ingredientSet: Set<Ingredient> = []
         
-//        guard let menu else { return [] }
         for produce in items {
-//        for produce in menu.recipe.produce {
             let set = produce.ingredients ?? []
             ingredientSet = ingredientSet.union(set)
         }

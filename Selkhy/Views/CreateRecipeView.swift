@@ -14,7 +14,6 @@ struct CreateRecipeView: View {
     @State var items: [Cook] = [Cook(), Cook()]
     @State var currentIndex = 0
     @State var isShowIngredientSelection: Bool = false
-//    @State var menu: Menu?
     @State var selectedIngredientsEnglishNames: [String] = []
     @State var isShowCookActionSelection: Bool = false
     @State var isShowTimeSelection: Bool = false
@@ -25,19 +24,6 @@ struct CreateRecipeView: View {
     let itemHeight: CGFloat = 208
     
     private let audioManager = AudioManager.instance
-    
-//    init() {
-//            _menu = State(initialValue: Menu(
-//                name: "",  // 초기 값을 적절히 설정하십시오.
-//                numberOfOrder: 0,
-//                creater: "",
-//                likes: 0,
-//                story: "",
-//                recipe: Recipe(ingredients: [], amount: [], price: 0, produce: []),
-//                review: [],
-//                image: Image("default")
-//            ))
-//        }
     
     var body: some View {
         
@@ -114,7 +100,6 @@ struct CreateRecipeView: View {
             Spacer()
             
             NavigationLink {
-//                RegisterRecipeView(menu: items)
                 RegisterRecipeView(items: $items)
             } label: {
                 Text("완료")

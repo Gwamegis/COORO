@@ -11,7 +11,6 @@ struct SelectedCookActionView: View {
     
     @Binding var isShowCookActionSelection: Bool
     @Binding var cook: Cook
-//    @Binding var menu: Menu?
     
     private let cookActions: [CookAction] = [.roast, .boil, .fry, .steam]
     
@@ -50,20 +49,6 @@ struct SelectedCookActionView: View {
                         .padding(.horizontal, 20)
                 }
             }
-            
-//            ForEach(cookActions.indices, id: \.self) { index in
-//                Button {
-//                    cook.action = cookActions[index]
-//
-//                    isShowCookActionSelection.toggle()
-//                } label: {
-//                    cookActions[index].getImage()
-//                        .resizable()
-//                        .scaledToFill()
-//                        .frame(height: 120)
-//                        .padding(.horizontal, 20)
-//                }
-//            }
             Spacer()
         }
         .background(Color.Background)
