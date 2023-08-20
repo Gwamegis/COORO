@@ -11,6 +11,7 @@ struct SelectedCookActionView: View {
     
     @Binding var isShowCookActionSelection: Bool
     @Binding var cook: Cook
+    
     private let cookActions: [CookAction] = [.roast, .boil, .fry, .steam]
     
     var body: some View {
@@ -36,12 +37,12 @@ struct SelectedCookActionView: View {
             .padding(.top, 10)
             .padding(.bottom, 25)
             
-            ForEach(cookActions.indices, id: \.self) { index in
+            ForEach(Array(cookActions.enumerated()), id: \.offset) { index, action in
                 Button {
-                    cook.action = cookActions[index]
+                    cook.action = action
                     isShowCookActionSelection.toggle()
                 } label: {
-                    cookActions[index].getImage()
+                    action.getImage()
                         .resizable()
                         .scaledToFill()
                         .frame(height: 120)

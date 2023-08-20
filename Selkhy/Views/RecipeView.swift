@@ -37,12 +37,14 @@ struct RecipeView: View {
                 .padding(.bottom, 30)
                 
                 VStack(alignment: .leading, spacing: 10) {
-                    Text("리뷰 \(menu.review.count)")
+                    Text("리뷰 \(menu.review?.count ?? 0)")
                         .font(.system(size: 14, weight: .bold))
                         .foregroundColor(.Grey10)
                     
-                    ForEach(Array(menu.review.enumerated()).prefix(2), id: \.offset) { index, review in
-                        ReviewView(review: review )
+                    if let review = menu.review {
+                        ForEach(Array(review.enumerated()).prefix(2), id: \.offset) { index, review in
+                            ReviewView(review: review )
+                        }
                     }
                     Button {
                         //TODO
