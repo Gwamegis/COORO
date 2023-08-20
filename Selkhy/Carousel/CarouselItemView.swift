@@ -85,17 +85,13 @@ struct CarouselItemView: View {
                     }
                     Spacer()
                     VStack(spacing: 26) {
-                        Button {
-                            isShowTimeSelection.toggle()
-                        } label: {
-                            Image(item.time != nil ? "Timer" : "SelectButton")
-                                .resizable()
-                                .scaledToFill()
-                                .frame(width: 70, height: 70)
-                                .onTapGesture {
-                                    isShowTimeSelection.toggle()
-                                }
-                        }
+                        Image(item.time != nil ? "Timer" : "SelectButton")
+                            .resizable()
+                            .scaledToFill()
+                            .frame(width: 70, height: 70)
+                            .onTapGesture {
+                                isShowTimeSelection.toggle()
+                            }
                         
                         if let time = item.time {
                             Text(time)
