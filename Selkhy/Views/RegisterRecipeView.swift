@@ -11,7 +11,7 @@ struct RegisterRecipeView: View {
     @EnvironmentObject var menuStore: MenuStore
     @State private var name: String = ""
     @State private var story: String = ""
-    @State var menu: Menu?
+    @Binding var items: [Cook]
     @State var isCompleted: Bool = false
     @State var isAvailableSave: Bool = false
     
@@ -66,8 +66,8 @@ struct RegisterRecipeView: View {
                         .font(.system(size: 14, weight: .bold))
                     
                     VStack(alignment: .leading) {
-                        if let menu {
-                            ForEach(Array(menu.recipe.produce.enumerated()), id: \.offset) { index, cook in
+                        ForEach(Array(items.enumerated()), id: \.offset) { index, cook in
+                            if index != items.count - 1 {
                                 HStack(spacing: 0) {
                                     Text("\(index + 1). ")
                                         .foregroundColor(.white)
@@ -103,15 +103,8 @@ struct RegisterRecipeView: View {
                 }
                 .disabled(!isAvailableSave)
                 .simultaneousGesture(TapGesture().onEnded{
-                    if var menu {
-                        menu.name = name
-                        menu.story = story
-                        menu.recipe.ingredients = getIngredients()
-                        isCompleted.toggle()
-                        menu.image = Image("FriedRice")
-                        menuStore.mockMenus.append(menu)
-                        // mockMenus.append(menu)
-                    }
+                    let menu = Menu(name: name, numberOfOrder: 0, creater: "", likes: 0, story: story, recipe: Recipe(ingredients: [], amount: [], price: 0, produce: items), review: nil, image: Image("FriedRice"))
+                    menuStore.mockMenus.append(menu)
                 })
             }
             .padding(.horizontal, 20)
@@ -130,7 +123,6 @@ struct RegisterRecipeView: View {
     
     @ViewBuilder
     private func getRecipeView(with cook: Cook) -> some View {
-        var time: String = "1m 30s"
         
         HStack(spacing: 8) {
             if let ingredients = cook.ingredients {
@@ -149,7 +141,7 @@ struct RegisterRecipeView: View {
                     .foregroundColor(.LightGrey)
                     .font(.system(size: 14))
             }
-            Text(time)
+            Text(cook.time ?? "30s")
                 .padding(.vertical, 8)
                 .padding(.horizontal, 10)
                 .foregroundColor(.white)
@@ -180,8 +172,7 @@ struct RegisterRecipeView: View {
     private func getIngredients() -> [Ingredient] {
         var ingredientSet: Set<Ingredient> = []
         
-        guard let menu else { return [] }
-        for produce in menu.recipe.produce {
+        for produce in items {
             let set = produce.ingredients ?? []
             ingredientSet = ingredientSet.union(set)
         }
@@ -190,30 +181,30 @@ struct RegisterRecipeView: View {
     }
 }
 
-struct RegisterRecipeView_Previews: PreviewProvider {
-    static var previews: some View {
-        RegisterRecipeView(menu:
-                            Menu(
-                                name: "3분 스시 김밥",
-                                numberOfOrder: 10,
-                                creater: "오마카세아니면밥상엎음",
-                                likes: 200,
-                                story: "전남친만의 비밀 재료가 들어간 샌드위치!\n이것 대문에 다시 연락했어요.",
-                                recipe: Recipe(
-                                    ingredients: [
-                                        Ingredient(name: "단무지", image: Image("PickledRadish"), isHidden: false),
-                                        Ingredient(name: "햄", image: Image("Ham"), isHidden: false),
-                                        Ingredient(name: "스시밥", image: Image("SushiRice"), isHidden: false)
-                                    ],
-                                    amount: [3,3,6],
-                                    price: 5000,
-                                    produce: [
-                                        Cook(ingredients: [Ingredient(name: "단무지", image: Image("PickledRadish"), isHidden: false), Ingredient(name: "햄", image: Image("Ham"), isHidden: false)], action: .fry, time: "3m 20s"),
-                                        Cook(ingredients: [Ingredient(name: "햄", image: Image("Ham"), isHidden: false)], action: .fry, time: "4m 20s"),
-                                        Cook(ingredients: [Ingredient(name: "스시밥", image: Image("SushiRice"), isHidden: false)], action: .boil, time: "5m 20s")
-                                    ]
-                                ),
-                                review: [Review(score: 10, photo: Image("Sandwich") , content: "")],
-                                image: Image("Kimbob")))
-    }
-}
+//struct RegisterRecipeView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        RegisterRecipeView(menu:
+//                            Menu(
+//                                name: "3분 스시 김밥",
+//                                numberOfOrder: 10,
+//                                creater: "오마카세아니면밥상엎음",
+//                                likes: 200,
+//                                story: "전남친만의 비밀 재료가 들어간 샌드위치!\n이것 대문에 다시 연락했어요.",
+//                                recipe: Recipe(
+//                                    ingredients: [
+//                                        Ingredient(name: "단무지", image: Image("PickledRadish"), isHidden: false),
+//                                        Ingredient(name: "햄", image: Image("Ham"), isHidden: false),
+//                                        Ingredient(name: "스시밥", image: Image("SushiRice"), isHidden: false)
+//                                    ],
+//                                    amount: [3,3,6],
+//                                    price: 5000,
+//                                    produce: [
+//                                        Cook(ingredients: [Ingredient(name: "단무지", image: Image("PickledRadish"), isHidden: false), Ingredient(name: "햄", image: Image("Ham"), isHidden: false)], action: .fry, time: "3m 20s"),
+//                                        Cook(ingredients: [Ingredient(name: "햄", image: Image("Ham"), isHidden: false)], action: .fry, time: "4m 20s"),
+//                                        Cook(ingredients: [Ingredient(name: "스시밥", image: Image("SushiRice"), isHidden: false)], action: .boil, time: "5m 20s")
+//                                    ]
+//                                ),
+//                                review: [Review(score: 10, photo: Image("Sandwich") , content: "")],
+//                                image: Image("Kimbob")))
+//    }
+//}

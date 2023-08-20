@@ -14,6 +14,6 @@ struct Menu {
     var likes: Int
     var story: String
     var recipe: Recipe
-    var review: [Review]
+    var review: [Review]?
     var image: Image
 }
